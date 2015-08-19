@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Wautilus.ArticleModel
 {
-	class Article
+	public class Article
 	{
+		public string Label { get; } = "Coucou";
 	}
 }
