@@ -95,6 +95,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wautilus.ArticleControls\Wautilus.ArticleControls.csproj">
+      <Project>{3e9fd1bc-65c6-42c7-af15-55b7c915d3f5}</Project>
+      <Name>Wautilus.ArticleControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wautilus.ArticleModel\Wautilus.ArticleModel.csproj">
+      <Project>{d8cf585c-87f2-46b3-90ff-f9f06b70ead2}</Project>
+      <Name>Wautilus.ArticleModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
