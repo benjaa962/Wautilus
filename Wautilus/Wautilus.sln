@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus", "Wautilus\Wautilus.csproj", "{C666D173-FBCC-41FC-9A65-033E3DFDA5F8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librairies", "Librairies", "{21269D05-F31F-478B-89E1-0B2E1724F67E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Download2\AlphaFS.2.0.1\AlphaFS.2.0.1\lib\net451\AlphaFS.dll = ..\..\..\..\Download2\AlphaFS.2.0.1\AlphaFS.2.0.1\lib\net451\AlphaFS.dll
+		..\..\..\..\Download2\AlphaFS.2.0.1\AlphaFS.2.0.1\lib\net451\AlphaFS.pdb = ..\..\..\..\Download2\AlphaFS.2.0.1\AlphaFS.2.0.1\lib\net451\AlphaFS.pdb
+		..\..\..\..\Download2\AlphaFS.2.0.1\AlphaFS.2.0.1\lib\net451\AlphaFS.xml = ..\..\..\..\Download2\AlphaFS.2.0.1\AlphaFS.2.0.1\lib\net451\AlphaFS.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
