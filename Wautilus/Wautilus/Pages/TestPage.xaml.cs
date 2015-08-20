@@ -13,12 +13,12 @@ namespace Wautilus
 		{
 			InitializeComponent();
 
-			var Path = @"C:\Home\Cum3";
+			var Path = @"C:\Home";
 			var Parameter = new ArticlesBuilderParameter
 			{
-				IncludeFiles       = true ,
-				IncludeDirectories = false,
-				RootPath           = Path ,
+				IncludeFiles       = true,
+				IncludeDirectories = true,
+				RootPath           = Path,
 			};
 			var Articles = ArticleBuilder.BuildCollection(Parameter);
 			MainLayout.Articles = Articles;

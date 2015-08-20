@@ -9,7 +9,17 @@
 	xmlns:local="clr-namespace:Wautilus" mc:Ignorable="d"
 	Width="525" Height="350" Title="MainWindow"
 	>
+	
+	<Window.CommandBindings>
+		<CommandBinding
+			Executed="Open_Executed"
+			CanExecute="Open_CanExecute"
+			Command="ApplicationCommands.Open"
+		/>
+	</Window.CommandBindings>
+	
 	<Grid>
 		<bc:Browser x:Name="Browser" />
 	</Grid>
+	
 </Window>

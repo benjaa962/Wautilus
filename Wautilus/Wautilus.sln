@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.ArticleModel", "Wa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.BrowserControls", "Wautilus.BrowserControls\Wautilus.BrowserControls.csproj", "{D728EADA-8BD1-491B-BA30-EC1408034331}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.Commands", "Wautilus.Commands\Wautilus.Commands.csproj", "{869CCDAC-F85E-430F-97E0-11C989F4A569}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D728EADA-8BD1-491B-BA30-EC1408034331}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D728EADA-8BD1-491B-BA30-EC1408034331}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D728EADA-8BD1-491B-BA30-EC1408034331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{869CCDAC-F85E-430F-97E0-11C989F4A569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{869CCDAC-F85E-430F-97E0-11C989F4A569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{869CCDAC-F85E-430F-97E0-11C989F4A569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{869CCDAC-F85E-430F-97E0-11C989F4A569}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

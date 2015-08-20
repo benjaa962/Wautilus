@@ -7,6 +7,14 @@
 	xmlns:local="clr-namespace:Wautilus.ArticleControls"
 	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
 	>
+	
+	<UserControl.InputBindings>
+		<MouseBinding
+			MouseAction="LeftDoubleClick"
+			Command="ApplicationCommands.Open"
+		/>
+	</UserControl.InputBindings>
+	
 	<UserControl.Resources>
 		
 		<DataTemplate x:Key="TextNormalTemplate">

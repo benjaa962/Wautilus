@@ -77,7 +77,25 @@ namespace Wautilus.ArticleModel
 
 		public override object GetImage (ArticleImageType Type)
 		{
-			return null;
+			var Size = ShellImageSize.Build(128);
+
+			switch (Type)
+			{
+				case ArticleImageType.NoImage:
+					return null;
+				case ArticleImageType.DefaultIcon:
+					return ShellTools.GetImage(Item, ShellImageType.IconOnly, Size);
+				case ArticleImageType.EmbeddedIcon:
+					return ShellTools.GetImage(Item, ShellImageType.IconOnly, Size);
+				case ArticleImageType.EmbeddedThumbnail:
+					return ShellTools.GetImage(Item, ShellImageType.ThumbnailOnly, Size);
+				case ArticleImageType.ThemeIcon:
+					return ShellTools.GetImage(Item, ShellImageType.IconOnly, Size);
+				case ArticleImageType.ThemeThumbnail:
+					return ShellTools.GetImage(Item, ShellImageType.ThumbnailOnly, Size);
+				default:
+					return null;
+			}
 		}
 
 		#endregion
