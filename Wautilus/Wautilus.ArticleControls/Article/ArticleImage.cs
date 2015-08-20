@@ -50,11 +50,11 @@ namespace Wautilus.ArticleControls
 				return null;
 
 			var SourceBinding = new PriorityBinding();
-			SourceBinding.Bindings.Add(GetArticleBinding("ThemeThumbnail"));
+		//	SourceBinding.Bindings.Add(GetArticleBinding("ThemeThumbnail"));
 			SourceBinding.Bindings.Add(GetArticleBinding("EmbeddedThumbnail"));
-			SourceBinding.Bindings.Add(GetArticleBinding("ThemeIcon"));
+		//	SourceBinding.Bindings.Add(GetArticleBinding("ThemeIcon"));
 			SourceBinding.Bindings.Add(GetArticleBinding("EmbeddedIcon"));
-			SourceBinding.Bindings.Add(GetArticleBinding("DefaultIcon"));
+		//	SourceBinding.Bindings.Add(GetArticleBinding("DefaultIcon"));
 			return SourceBinding;
 		}
 

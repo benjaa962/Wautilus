@@ -75,7 +75,7 @@ namespace Wautilus.ArticleModel
 			var Pattern =
 				!string.IsNullOrWhiteSpace(Parameter.Pattern)
 					? Parameter.Pattern
-					: null;
+					: "*";
 			var Option =
 				Parameter.IsRecursive
 					? SearchOption.AllDirectories

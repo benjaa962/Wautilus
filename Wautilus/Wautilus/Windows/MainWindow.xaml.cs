@@ -13,10 +13,13 @@ namespace Wautilus
 		{
 			InitializeComponent();
 
-			var Articles = new ArticleCollection();
-			for (int i = 0; i < 1000; ++i)
-				Articles.Add(new FileArticle(@"C:\Home\u.jpg"));
-
+			var Parameter = new ArticlesBuilderParameter
+			{
+				IncludeFiles       = true ,
+                IncludeDirectories = false,
+				RootPath =  @"C:\Home",
+			};
+			var Articles = ArticleBuilder.BuildCollection(Parameter);
 			Test.Articles = Articles;
         }
 		
