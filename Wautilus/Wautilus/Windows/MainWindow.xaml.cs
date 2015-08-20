@@ -29,8 +29,13 @@ namespace Wautilus
 
 		#endregion
 
-		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+		private void Open_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
+			if (e.Parameter is FileArticle)
+			{
+				var File = e.Parameter as FileArticle;
+				File.Open(ArticleOpenType.MainApplication);
+			}
 			if (e.Parameter is DirectoryArticle)
 			{
 				var Directory = e.Parameter as DirectoryArticle;
@@ -38,12 +43,29 @@ namespace Wautilus
 				Browser.Navigate(Page);
 			}
 		}
-		private void Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		private void Open_CanExecute (object sender, CanExecuteRoutedEventArgs e)
 		{
-            if (e.Parameter is DirectoryArticle)
+			if (e.Parameter is Article)
 			{
-				var Directory = e.Parameter as DirectoryArticle;
-                e.CanExecute = Directory.Exists;
+				var Article = e.Parameter as Article;
+				e.CanExecute = Article.CanOpen(ArticleOpenType.MainApplication);
+			}
+		}
+
+		private void Properties_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter is Article)
+			{
+				var Article = e.Parameter as Article;
+				Article.Open(ArticleOpenType.Properties);
+			}
+		}
+		private void Properties_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			if (e.Parameter is Article)
+			{
+				var Article = e.Parameter as Article;
+				e.CanExecute = Article.CanOpen(ArticleOpenType.Properties);
 			}
 		}
 

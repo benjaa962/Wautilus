@@ -97,6 +97,32 @@ namespace Wautilus.ArticleModel
 			}
 		}
 
+		public override bool CanOpen (ArticleOpenType Type)
+		{
+			switch (Type)
+			{
+				case ArticleOpenType.MainApplication:
+				case ArticleOpenType.Properties:
+					return Exists;
+				default:
+					return false;
+			}
+		}
+		public override void Open (ArticleOpenType Type)
+		{
+			if (!CanOpen(Type))
+				return;
+
+			switch (Type)
+			{
+				case ArticleOpenType.MainApplication:
+					break;
+				case ArticleOpenType.Properties:
+					ShellTools.OpenProperties(FullName);
+					break;
+			}
+		}
+
 		#endregion
 
 	}

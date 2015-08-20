@@ -16,6 +16,11 @@
 			CanExecute="Open_CanExecute"
 			Command="ApplicationCommands.Open"
 		/>
+		<CommandBinding
+			Executed="Properties_Executed"
+			CanExecute="Properties_CanExecute"
+			Command="ApplicationCommands.Properties"
+		/>
 	</Window.CommandBindings>
 	
 	<Grid>

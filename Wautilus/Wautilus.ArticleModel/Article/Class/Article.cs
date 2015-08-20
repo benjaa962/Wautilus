@@ -47,8 +47,11 @@ namespace Wautilus.ArticleModel
 		public abstract DateTime GetTime  (ArticleTimeType  Type);
 		public abstract object   GetImage (ArticleImageType Type);
 
+		public abstract bool CanOpen (ArticleOpenType Type);
+        public abstract void    Open (ArticleOpenType Type);
+		
 		#endregion
-
+		
 	}
 
 }

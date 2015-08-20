@@ -101,7 +101,7 @@ namespace Wautilus.ArticleModel
 			}
 		}
 
-		public bool CanOpen (ArticleOpenType Type)
+		public override bool CanOpen (ArticleOpenType Type)
 		{
 			switch (Type)
 			{
@@ -112,7 +112,7 @@ namespace Wautilus.ArticleModel
 					return false;
 			}
 		}
-		public void Open (ArticleOpenType Type)
+		public override void Open (ArticleOpenType Type)
 		{
 			if (!CanOpen(Type))
 				return;
