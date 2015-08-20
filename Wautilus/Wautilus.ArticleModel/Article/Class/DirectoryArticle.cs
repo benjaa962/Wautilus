@@ -76,7 +76,7 @@ namespace Wautilus.ArticleModel
 
 		public override object GetImage (ArticleImageType Type)
 		{
-			var Size = ShellImageSize.Build(96);
+			var Size = ShellImageSize.Build(256);
 
 			switch (Type)
 			{
