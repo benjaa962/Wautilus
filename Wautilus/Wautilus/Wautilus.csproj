@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +66,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -103,6 +110,10 @@
     <ProjectReference Include="..\Wautilus.ArticleModel\Wautilus.ArticleModel.csproj">
       <Project>{d8cf585c-87f2-46b3-90ff-f9f06b70ead2}</Project>
       <Name>Wautilus.ArticleModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wautilus.BrowserControls\Wautilus.BrowserControls.csproj">
+      <Project>{d728eada-8bd1-491b-ba30-ec1408034331}</Project>
+      <Name>Wautilus.BrowserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
