@@ -5,11 +5,12 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:Wautilus"
+	xmlns:ac="clr-namespace:Wautilus.ArticleControls;assembly=Wautilus.ArticleControls"
 	xmlns:bc="clr-namespace:Wautilus.BrowserControls;assembly=Wautilus.BrowserControls"
 	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
 	Title="TestPage"
 	>
-	<Grid>
-		<Label Content="Coucou" />
-	</Grid>
+	<StackPanel>
+		<ac:ArticlesWrap x:Name="MainLayout" />
+	</StackPanel>
 </bc:BrowserPage>
