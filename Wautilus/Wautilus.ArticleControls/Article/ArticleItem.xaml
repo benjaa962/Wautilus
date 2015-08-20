@@ -9,15 +9,18 @@
 	>
 	<UserControl.Resources>
 		
-		<DataTemplate x:Key="DefaultTemplate">
-			<StackPanel>
+		<DataTemplate x:Key="ImageNormalTemplate">
+			<StackPanel Width="128" Margin="8">
 				<local:ArticleImage
-					Article="{Binding}" Width="128" Height="128"
-					HorizontalAlignment="Center" VerticalAlignment="Bottom"
+					Article="{Binding}"
+					MaxWidth="128" MaxHeight="128"
+					HorizontalAlignment="Center"
 				/>
-				<Label
-					Content="{Binding}"
-					HorizontalAlignment="Center" VerticalAlignment="Top"
+				<TextBlock
+					Text="{Binding Path=FullName}" HorizontalAlignment="Center"
+					LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
+					TextTrimming="CharacterEllipsis" TextWrapping="Wrap"
+					
 				/>
 			</StackPanel>
 		</DataTemplate>

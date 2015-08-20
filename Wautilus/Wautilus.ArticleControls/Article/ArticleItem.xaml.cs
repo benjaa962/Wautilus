@@ -17,7 +17,7 @@ namespace Wautilus.ArticleControls
 
 		public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
 			"Type", typeof(ArticleItemType), typeof(ArticleItem),
-			new PropertyMetadata(ArticleItemType.Default, OnTypePropertyChanged)
+			new PropertyMetadata(ArticleItemType.ImageNormal, OnTypePropertyChanged)
 		);
 
 		#endregion

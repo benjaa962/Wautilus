@@ -12,7 +12,7 @@
 	<UserControl.Resources>
 
         <DataTemplate x:Key="ArticleTemplate">
-            <local:ArticleItem Article="{Binding}" />
+            <local:ArticleItem Article="{Binding}" Background="Transparent" />
         </DataTemplate>
 		
         <ItemsPanelTemplate x:Key="PanelTemplate">
@@ -26,6 +26,7 @@
 		ItemsSource="{Binding Path=Articles}"
 		ItemTemplate="{StaticResource ResourceKey=ArticleTemplate}"
 		ItemsPanel="{StaticResource ResourceKey=PanelTemplate}"
+		VerticalContentAlignment="Bottom"
 		ScrollViewer.HorizontalScrollBarVisibility="Disabled"
 		ScrollViewer.VerticalScrollBarVisibility="Auto"
 	/>
