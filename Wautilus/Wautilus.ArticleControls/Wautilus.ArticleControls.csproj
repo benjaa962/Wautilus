@@ -96,6 +96,10 @@
       <Project>{d8cf585c-87f2-46b3-90ff-f9f06b70ead2}</Project>
       <Name>Wautilus.ArticleModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wautilus.Commands\Wautilus.Commands.csproj">
+      <Project>{869ccdac-f85e-430f-97e0-11c989f4a569}</Project>
+      <Name>Wautilus.Commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -115,6 +115,10 @@
       <Project>{d728eada-8bd1-491b-ba30-ec1408034331}</Project>
       <Name>Wautilus.BrowserControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wautilus.Commands\Wautilus.Commands.csproj">
+      <Project>{869ccdac-f85e-430f-97e0-11c989f4a569}</Project>
+      <Name>Wautilus.Commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
