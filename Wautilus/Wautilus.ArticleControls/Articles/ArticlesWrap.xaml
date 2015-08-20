@@ -21,7 +21,7 @@
 		
 	</UserControl.Resources>
 	
-    <ListBox
+	<ListBox
 		x:Name="MainBox" SelectionMode="Extended"
 		ItemsSource="{Binding Path=Articles}"
 		ItemTemplate="{StaticResource ResourceKey=ArticleTemplate}"

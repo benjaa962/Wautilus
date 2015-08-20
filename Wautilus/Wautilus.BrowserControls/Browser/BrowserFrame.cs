@@ -15,7 +15,8 @@ namespace Wautilus.BrowserControls
 			this.Browser           = Browser                      ;
 			LoadCompleted         += OnLoadCompleted              ;
 			NavigationUIVisibility = NavigationUIVisibility.Hidden;
-		}
+
+        }
 		public BrowserFrame (Browser Browser, object Content) : this(Browser)
 		{
 			Navigate(Content);

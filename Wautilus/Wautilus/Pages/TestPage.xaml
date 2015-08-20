@@ -10,7 +10,12 @@
 	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
 	Title="TestPage"
 	>
-	<StackPanel>
-		<ac:ArticlesWrap x:Name="MainLayout" />
-	</StackPanel>
+	
+	<ScrollViewer VerticalScrollBarVisibility="Auto">
+		<StackPanel Width="500">
+			<Label Content="Coucou" />
+			<ac:ArticlesWrap x:Name="MainLayout" />
+		</StackPanel>
+	</ScrollViewer>
+	
 </bc:BrowserPage>

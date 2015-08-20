@@ -13,7 +13,7 @@ namespace Wautilus
 		{
 			InitializeComponent();
 
-			var Path = @"C:\Home\Cum";
+			var Path = @"C:\Home\Cum3";
 			var Parameter = new ArticlesBuilderParameter
 			{
 				IncludeFiles       = true ,

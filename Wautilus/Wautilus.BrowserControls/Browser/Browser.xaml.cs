@@ -91,6 +91,7 @@ namespace Wautilus.BrowserControls
 		{
 			var Index = GetIndexForInsert(Location)    ;
 			var Frame = new BrowserFrame(this, Content);
+
 			Frames.Insert(Index, Frame);
 		}
 
