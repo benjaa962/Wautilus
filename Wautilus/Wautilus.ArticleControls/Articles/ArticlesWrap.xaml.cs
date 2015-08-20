@@ -23,10 +23,7 @@ namespace Wautilus.ArticleControls
 		public ArticlesWrap () : base()
 		{
 			InitializeComponent();
-			for (int i = 0; i<1000; ++i)
-				Articles.Add(new FileArticle(@"C:\Home\u.jpg"));
 			RootLayout.DataContext = this;
-			//MainBox.ItemsSource = Items;
 		}
 
 		#endregion

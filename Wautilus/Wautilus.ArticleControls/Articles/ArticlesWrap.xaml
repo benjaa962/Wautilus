@@ -12,7 +12,7 @@
 	<UserControl.Resources>
 
         <DataTemplate x:Key="ArticleTemplate">
-            <Label Content="{Binding Path=Label}" />
+            <local:ArticleItem Article="{Binding}" />
         </DataTemplate>
 		
         <ItemsPanelTemplate x:Key="PanelTemplate">

@@ -12,7 +12,12 @@ namespace Wautilus
 		public MainWindow ()
 		{
 			InitializeComponent();
-			Test.Article = new FileArticle(@"C:\Home\u.jpg");
+
+			var Articles = new ArticleCollection();
+			for (int i = 0; i < 1000; ++i)
+				Articles.Add(new FileArticle(@"C:\Home\u.jpg"));
+
+			Test.Articles = Articles;
         }
 		
 		#endregion
