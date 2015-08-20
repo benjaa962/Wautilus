@@ -71,6 +71,39 @@ namespace Wautilus
 				e.CanExecute = Article.CanOpen(ArticleOpenType.MainApplication);
 			}
 		}
+		private void OpenInNewTab_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter is DirectoryArticle)
+			{
+				var Directory = e.Parameter as DirectoryArticle;
+				var Page = new TestPage(Directory);
+				Browser.Navigate(Page, BrowserLocation.AfterCurrent);
+			}
+		}
+		private void OpenInNewTab_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			if (e.Parameter is DirectoryArticle)
+			{
+				var Directory = e.Parameter as DirectoryArticle;
+				e.CanExecute = Directory.CanOpen(ArticleOpenType.MainApplication);
+			}
+		}
+		private void Close_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter is BrowserFrame)
+			{
+				var Frame = e.Parameter as BrowserFrame;
+				Browser.Close(Frame);
+			}
+		}
+		private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			if (e.Parameter is BrowserFrame)
+			{
+				var Frame = e.Parameter as BrowserFrame;
+				e.CanExecute = true;
+			}
+		}
 
 		private void Properties_Executed(object sender, ExecutedRoutedEventArgs e)
 		{

@@ -71,6 +71,12 @@ namespace Wautilus.BrowserControls
 			NavigateToContent(Source, Location);
         }
 
+		public void Close (BrowserFrame Frame)
+		{
+			if (Frames.Contains(Frame))
+				Frames.Remove(Frame);
+		}
+
 		#endregion
 
 		#region private method

@@ -5,6 +5,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="clr-namespace:Wautilus.ArticleControls"
+	xmlns:c="clr-namespace:Wautilus.Commands;assembly=Wautilus.Commands"
 	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
 	>
 	
@@ -14,8 +15,9 @@
 			Command="ApplicationCommands.Open"
 			CommandParameter="{Binding}"
 		/>
-		<KeyBinding
-			Command="ApplicationCommands.Properties"
+		<MouseBinding
+			MouseAction="MiddleClick"
+			Command="{x:Static c:Commands.OpenInNewTab}"
 			CommandParameter="{Binding}"
 		/>
 	</UserControl.InputBindings>

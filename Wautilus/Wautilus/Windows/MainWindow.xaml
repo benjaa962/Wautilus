@@ -6,12 +6,13 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:ac="clr-namespace:Wautilus.ArticleControls;assembly=Wautilus.ArticleControls"
 	xmlns:bc="clr-namespace:Wautilus.BrowserControls;assembly=Wautilus.BrowserControls"
+	xmlns:c="clr-namespace:Wautilus.Commands;assembly=Wautilus.Commands"
 	xmlns:local="clr-namespace:Wautilus" mc:Ignorable="d"
 	Width="525" Height="350" Title="MainWindow"
 	>
 	
 	<Window.CommandBindings>
-				<CommandBinding
+		<CommandBinding
 			Executed="BrowseBack_Executed"
 			CanExecute="BrowseBack_CanExecute"
 			Command="NavigationCommands.BrowseBack"
@@ -26,6 +27,16 @@
 			Executed="Open_Executed"
 			CanExecute="Open_CanExecute"
 			Command="ApplicationCommands.Open"
+		/>
+		<CommandBinding
+			Executed="OpenInNewTab_Executed"
+			CanExecute="OpenInNewTab_CanExecute"
+			Command="{x:Static c:Commands.OpenInNewTab}"
+		/>
+		<CommandBinding
+			Executed="Close_Executed"
+			CanExecute="Close_CanExecute"
+			Command="ApplicationCommands.Close"
 		/>
 		<CommandBinding
 			Executed="Properties_Executed"
