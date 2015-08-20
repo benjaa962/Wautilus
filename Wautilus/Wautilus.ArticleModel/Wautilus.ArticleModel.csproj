@@ -42,6 +42,22 @@
   <ItemGroup>
     <Compile Include="Article.cs" />
     <Compile Include="ArticleCollection.cs" />
+    <Compile Include="Article\Class\Article.cs" />
+    <Compile Include="Article\Class\ArticleCollection.cs" />
+    <Compile Include="Article\Class\DirectoryArticle.cs" />
+    <Compile Include="Article\Class\DriveArticle.cs" />
+    <Compile Include="Article\Class\FileArticle.cs" />
+    <Compile Include="Article\Enums\ArticleImageType.cs" />
+    <Compile Include="Article\Enums\ArticleNameType.cs" />
+    <Compile Include="Article\Enums\ArticleTimeType.cs" />
+    <Compile Include="Article\Enums\ArticleType.cs" />
+    <Compile Include="Article\Enums\DeleteOption.cs" />
+    <Compile Include="Article\Enums\DriveSizeType.cs" />
+    <Compile Include="Article\Enums\SizeTextType.cs" />
+    <Compile Include="Article\Tools\ArticleBuilder.cs" />
+    <Compile Include="Article\Tools\ArticleChecker.cs" />
+    <Compile Include="Article\Tools\ArticlesBuilderParameter.cs" />
+    <Compile Include="Article\Tools\SizeTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
