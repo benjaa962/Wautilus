@@ -11,6 +11,17 @@
 	>
 	
 	<Window.CommandBindings>
+				<CommandBinding
+			Executed="BrowseBack_Executed"
+			CanExecute="BrowseBack_CanExecute"
+			Command="NavigationCommands.BrowseBack"
+		/>
+		<CommandBinding
+			Executed="BrowseForward_Executed"
+			CanExecute="BrowseForward_CanExecute"
+			Command="NavigationCommands.BrowseForward"
+		/>
+
 		<CommandBinding
 			Executed="Open_Executed"
 			CanExecute="Open_CanExecute"
@@ -23,8 +34,39 @@
 		/>
 	</Window.CommandBindings>
 	
-	<Grid>
+	<DockPanel x:Name="MainPanel">
+		
+		<DockPanel LastChildFill="True" DockPanel.Dock="Top"
+               HorizontalAlignment="Stretch" Width="Auto" 
+               Background="#FFF2F2F2">
+			<ToolBar DockPanel.Dock="Left">
+				<Button
+					x:Name="BrowseForwardBack" Command="NavigationCommands.BrowseBack"
+					Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+					ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+				/>
+				<Button
+					x:Name="BrowseForwardButton" Command="NavigationCommands.BrowseForward"
+					Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+					ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+				/>
+				<Button Visibility="Collapsed"
+					x:Name="BrowseHomeButton" Command="NavigationCommands.BrowseHome"
+					Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+					ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+				/>
+			</ToolBar>
+			<ToolBar  DockPanel.Dock="Right">
+				<Button Content="Coucou" />
+			</ToolBar>
+			<ToolBar>
+				<Button Content="Salut" />
+			</ToolBar>
+		</DockPanel>
+
+	
 		<bc:Browser x:Name="Browser" />
-	</Grid>
+		
+		</DockPanel>
 	
 </Window>

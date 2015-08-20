@@ -29,6 +29,26 @@ namespace Wautilus
 
 		#endregion
 
+
+		private void BrowseBack_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			Browser ?.CurrentFrame?.GoBack();
+		}
+		private void BrowseBack_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = Browser?.CurrentFrame?.CanGoBack ?? false;
+		}
+
+		private void BrowseForward_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			Browser?.CurrentFrame?.GoForward();
+		}
+		private void BrowseForward_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = Browser?.CurrentFrame?.CanGoForward ?? false;
+		}
+
+
 		private void Open_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
 			if (e.Parameter is FileArticle)
