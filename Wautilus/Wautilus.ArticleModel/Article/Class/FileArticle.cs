@@ -89,7 +89,7 @@ namespace Wautilus.ArticleModel
 				case ArticleImageType.DefaultIcon:
 					return ShellTools.GetImage(Item, ShellImageType.IconOnly, Size);
 				case ArticleImageType.EmbeddedIcon:
-					return ShellTools.GetImage(Item, ShellImageType.IconOnly, Size);
+					return ShellTools.GetImage(Item, 0, Size);
 				case ArticleImageType.EmbeddedThumbnail:
 					return ShellTools.GetImage(Item, ShellImageType.ThumbnailOnly, Size);
 				case ArticleImageType.ThemeIcon:
