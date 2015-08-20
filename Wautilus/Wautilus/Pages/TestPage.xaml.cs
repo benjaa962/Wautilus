@@ -9,11 +9,15 @@ namespace Wautilus
 
 		#region constructor
 
-		public TestPage() : this(new DirectoryArticle(@"C:\Home"))
+		public TestPage() : base()
 		{
+			InitializeComponent();
+
+			var Articles = ArticleBuilder.BuildDrives();
+			MainLayout.Articles = Articles;
 
 		}
-        public TestPage (DirectoryArticle Directory) : base()
+		public TestPage (DirectoryArticle Directory) : base()
 		{
 			InitializeComponent();
 
