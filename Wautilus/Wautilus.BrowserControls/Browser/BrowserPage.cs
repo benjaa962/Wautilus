@@ -17,6 +17,8 @@ namespace Wautilus.BrowserControls
 
 		#region property
 
+		public Browser Browser => Frame ?. Browser;
+
 		public BrowserFrame Frame { get; internal set; }
 
 		#endregion
@@ -33,6 +35,15 @@ namespace Wautilus.BrowserControls
 		}
 		public void Navigate (object Content, BrowserLocation Location)
 		{
+			Browser ?. Navigate(Content, Location);
+		}
+		public void Navigate (Page Page)
+		{
+			Navigate(Page, BrowserLocation.AtCurrent);
+		}
+		public void Navigate (Page Page, BrowserLocation Location)
+		{
+			Browser ?. Navigate (Page, Location);
 		}
 		public void Navigate (BrowserPage Page)
 		{
@@ -40,6 +51,7 @@ namespace Wautilus.BrowserControls
 		}
 		public void Navigate (BrowserPage Page, BrowserLocation Location)
 		{
+			Browser ?. Navigate(Page, Location);
 		}
 		public void Navigate (Uri Source)
 		{
@@ -47,6 +59,7 @@ namespace Wautilus.BrowserControls
 		}
 		public void Navigate (Uri Source, BrowserLocation Location)
 		{
+			Browser ?. Navigate(Source, Location);
 		}
 
 		#endregion

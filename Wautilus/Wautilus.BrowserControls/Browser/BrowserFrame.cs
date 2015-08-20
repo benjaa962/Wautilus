@@ -20,6 +20,10 @@ namespace Wautilus.BrowserControls
 		{
 			Navigate(Content);
 		}
+		public BrowserFrame (Browser Browser, Page Page) : this(Browser)
+		{
+			Navigate(Page);
+		}
 		public BrowserFrame (Browser Browser, BrowserPage Page) : this(Browser)
 		{
 			Navigate(Page);

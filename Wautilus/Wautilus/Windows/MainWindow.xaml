@@ -5,10 +5,11 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:ac="clr-namespace:Wautilus.ArticleControls;assembly=Wautilus.ArticleControls"
+	xmlns:bc="clr-namespace:Wautilus.BrowserControls;assembly=Wautilus.BrowserControls"
 	xmlns:local="clr-namespace:Wautilus" mc:Ignorable="d"
 	Width="525" Height="350" Title="MainWindow"
 	>
 	<Grid>
-		<ac:ArticlesWrap x:Name="Test" />
+		<bc:Browser x:Name="Browser" />
 	</Grid>
 </Window>

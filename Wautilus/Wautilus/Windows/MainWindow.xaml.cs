@@ -12,15 +12,17 @@ namespace Wautilus
 		public MainWindow ()
 		{
 			InitializeComponent();
-
-			var Parameter = new ArticlesBuilderParameter
+			var Page = new TestPage();
+			Browser.Navigate(Page);
+			var a = Page.Browser;
+			/*var Parameter = new ArticlesBuilderParameter
 			{
 				IncludeFiles       = true ,
                 IncludeDirectories = false,
 				RootPath =  @"C:\Home",
 			};
 			var Articles = ArticleBuilder.BuildCollection(Parameter);
-			Test.Articles = Articles;
+			Test.Articles = Articles;*/
         }
 		
 		#endregion
