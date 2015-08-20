@@ -9,6 +9,6 @@
 	Width="525" Height="350" Title="MainWindow"
 	>
 	<Grid>
-		<ac:ArticleImage x:Name="Test" />
+		<ac:ArticleItem x:Name="Test" />
 	</Grid>
 </Window>

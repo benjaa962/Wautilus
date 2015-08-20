@@ -12,17 +12,46 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wautilus.ArticleModel;
 
 namespace Wautilus.ArticleControls
 {
-	/// <summary>
-	/// Interaction logic for ArticleItem.xaml
-	/// </summary>
+
 	public partial class ArticleItem : UserControl
 	{
-		public ArticleItem()
+		
+		#region field
+
+		public static readonly DependencyProperty ArticleProperty = DependencyProperty.Register(
+			"Article", typeof(Article), typeof(ArticleItem)
+		);
+
+		#endregion
+
+		#region constructor
+
+		public ArticleItem () : base()
 		{
 			InitializeComponent();
+			RootLayout.DataContext = this;
 		}
+		public ArticleItem (Article Article) : this()
+		{
+			this.Article = Article;
+		}
+
+		#endregion
+
+		#region property
+
+		public Article Article
+		{
+			get { return (Article)GetValue(ArticleProperty); }
+			set { SetValue(ArticleProperty, value);          }
+		}
+
+		#endregion
+
 	}
+
 }

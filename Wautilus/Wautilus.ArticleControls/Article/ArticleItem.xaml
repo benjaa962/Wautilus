@@ -10,8 +10,13 @@
 	>
     <StackPanel
 		x:Name="MainPanel" DataContext="{Binding Path=Article}"
-		Width="128"
+		Width="128" Background="Transparent"
 		>
+		<local:ArticleImage
+			x:Name="ImageLayout" Article="{Binding}"
+			Width="128" Height="128"
+			HorizontalAlignment="Center" VerticalAlignment="Bottom"
+		/>
 		<Label
 			x:Name="LabelLayout" Content="{Binding Path=FullName}"
 			HorizontalAlignment="Center" VerticalAlignment="Top"
