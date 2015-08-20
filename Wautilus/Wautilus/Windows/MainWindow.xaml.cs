@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using Wautilus.ArticleModel;
+using Wautilus.BrowserControls;
 
 namespace Wautilus
 {
@@ -30,11 +31,20 @@ namespace Wautilus
 
 		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
-			//MainBrowser.GoBack();
+			if (e.Parameter is DirectoryArticle)
+			{
+				var Directory = e.Parameter as DirectoryArticle;
+				var Page = new TestPage(Directory);
+				Browser.Navigate(Page);
+			}
 		}
 		private void Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
 		{
-			//e.CanExecute = MainBrowser != null && MainBrowser.CanGoBack;
+            if (e.Parameter is DirectoryArticle)
+			{
+				var Directory = e.Parameter as DirectoryArticle;
+                e.CanExecute = Directory.Exists;
+			}
 		}
 
 	}

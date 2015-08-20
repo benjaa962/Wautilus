@@ -12,6 +12,7 @@
 		<MouseBinding
 			MouseAction="LeftDoubleClick"
 			Command="ApplicationCommands.Open"
+			CommandParameter="{Binding}"
 		/>
 	</UserControl.InputBindings>
 	

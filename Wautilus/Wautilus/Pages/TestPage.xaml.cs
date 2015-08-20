@@ -6,19 +6,22 @@ namespace Wautilus
 
 	public partial class TestPage : BrowserPage
 	{
-		
+
 		#region constructor
 
-		public TestPage () : base()
+		public TestPage() : this(new DirectoryArticle(@"C:\Home"))
+		{
+
+		}
+        public TestPage (DirectoryArticle Directory) : base()
 		{
 			InitializeComponent();
 
-			var Path = @"C:\Home";
 			var Parameter = new ArticlesBuilderParameter
 			{
 				IncludeFiles       = true,
 				IncludeDirectories = true,
-				RootPath           = Path,
+				RootPath           = Directory.FullName,
 			};
 			var Articles = ArticleBuilder.BuildCollection(Parameter);
 			MainLayout.Articles = Articles;

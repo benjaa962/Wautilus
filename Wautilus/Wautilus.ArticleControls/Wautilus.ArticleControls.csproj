@@ -57,6 +57,7 @@
       <DependentUpon>ArticleItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enums\ArticleItemType.cs" />
+    <Compile Include="Enums\ArticleOpenType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using System;
+using System.Diagnostics;
 
 namespace Wautilus.ArticleModel
 {
@@ -97,6 +98,33 @@ namespace Wautilus.ArticleModel
 					return ShellTools.GetImage(Item, ShellImageType.ThumbnailOnly, Size);
 				default:
 					return null;
+			}
+		}
+
+		public bool CanOpen (ArticleOpenType Type)
+		{
+			switch (Type)
+			{
+				case ArticleOpenType.MainApplication:
+				case ArticleOpenType.Properties:
+					return Exists;
+				default:
+					return false;
+			}
+		}
+		public void Open (ArticleOpenType Type)
+		{
+			if (!CanOpen(Type))
+				return;
+
+			switch (Type)
+			{
+				case ArticleOpenType.MainApplication:
+					Process.Start(FullName);
+					break;
+				case ArticleOpenType.Properties:
+					ShellTools.OpenProperties(FullName);
+					break;
 			}
 		}
 

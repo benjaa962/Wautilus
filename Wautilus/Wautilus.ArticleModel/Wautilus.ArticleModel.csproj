@@ -50,6 +50,7 @@
     <Compile Include="Article\Class\FileArticle.cs" />
     <Compile Include="Article\Enums\ArticleImageType.cs" />
     <Compile Include="Article\Enums\ArticleNameType.cs" />
+    <Compile Include="Article\Enums\ArticleOpenType.cs" />
     <Compile Include="Article\Enums\ArticleTimeType.cs" />
     <Compile Include="Article\Enums\ArticleType.cs" />
     <Compile Include="Article\Enums\DeleteOption.cs" />

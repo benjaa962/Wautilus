@@ -12,7 +12,6 @@ namespace Wautilus.ArticleModel
 		private DirectoryInfo Info;
 		private IShellItem    Item;
 
-
 		#endregion
 
 		#region constructor
