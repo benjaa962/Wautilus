@@ -22,7 +22,7 @@
 	</UserControl.Resources>
 	
 	<ListBox
-		x:Name="MainBox"
+		x:Name="MainBox" Background="DimGray" Foreground="LightGray"
 		SelectionMode="Extended" BorderThickness="0"
 		ItemsSource="{Binding Path=Articles}"
 		ItemTemplate="{StaticResource ResourceKey=ArticleTemplate}"

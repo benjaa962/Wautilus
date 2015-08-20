@@ -20,6 +20,11 @@
 			Command="{x:Static c:Commands.OpenInNewTab}"
 			CommandParameter="{Binding}"
 		/>
+		<KeyBinding
+			 Key="F4"
+			Command="ApplicationCommands.Properties"
+			CommandParameter="{Binding}"
+		/>
 	</UserControl.InputBindings>
 	
 	<UserControl.Resources>

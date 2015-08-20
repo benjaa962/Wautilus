@@ -20,6 +20,8 @@ namespace Wautilus
 		public TestPage (DirectoryArticle Directory) : base()
 		{
 			InitializeComponent();
+			//this.Directory = Directory;
+			//Loaded += TestPage_Loaded;
 
 			var Parameter = new ArticlesBuilderParameter
 			{
@@ -30,8 +32,26 @@ namespace Wautilus
 			var Articles = ArticleBuilder.BuildCollection(Parameter);
 			MainLayout.Articles = Articles;
 		}
-		
+
+		/*private DirectoryArticle Directory;
+
+		private void TestPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+		{
+			if (Directory == null)
+				return;
+			var Parameter = new ArticlesBuilderParameter
+			{
+				IncludeFiles = true,
+				IncludeDirectories = true,
+				RootPath = Directory.FullName,
+			};
+			var Articles = ArticleBuilder.BuildCollection(Parameter);
+			MainLayout.Articles = Articles;
+
+		}*/
+
 		#endregion
+
 
 	}
 
