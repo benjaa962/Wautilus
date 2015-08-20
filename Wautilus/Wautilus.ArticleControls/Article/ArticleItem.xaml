@@ -17,7 +17,7 @@
 					HorizontalAlignment="Center"
 				/>
 				<TextBlock
-					Text="{Binding Path=FullName}" HorizontalAlignment="Center"
+					Text="{Binding Path=ShortName}" HorizontalAlignment="Center"
 					LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
 					TextTrimming="CharacterEllipsis" TextWrapping="Wrap"
 					
@@ -33,7 +33,7 @@
 					HorizontalAlignment="Center"
 				/>
 				<TextBlock
-					Text="{Binding Path=FullName}" HorizontalAlignment="Center"
+					Text="{Binding Path=ShortName}" HorizontalAlignment="Center"
 					LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
 					TextTrimming="CharacterEllipsis" TextWrapping="Wrap"
 					
@@ -48,7 +48,7 @@
 					HorizontalAlignment="Center"
 				/>
 				<TextBlock
-					Text="{Binding Path=FullName}" HorizontalAlignment="Center"
+					Text="{Binding Path=ShortName}" HorizontalAlignment="Center"
 					LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
 					TextTrimming="CharacterEllipsis" TextWrapping="Wrap"
 					
