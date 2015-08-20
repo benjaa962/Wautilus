@@ -12,7 +12,7 @@
 	>
 	
 	<ScrollViewer VerticalScrollBarVisibility="Auto">
-		<StackPanel Width="500">
+		<StackPanel>
 			<Label Content="Coucou" />
 			<ac:ArticlesWrap x:Name="MainLayout" />
 		</StackPanel>
