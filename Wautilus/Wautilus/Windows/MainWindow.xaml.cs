@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Wautilus.ArticleModel;
 
 namespace Wautilus
 {
@@ -11,7 +12,8 @@ namespace Wautilus
 		public MainWindow ()
 		{
 			InitializeComponent();
-		}
+			Test.Article = new FileArticle(@"C:\Home\u.jpg");
+        }
 		
 		#endregion
 
