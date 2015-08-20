@@ -51,7 +51,6 @@
 					Text="{Binding Path=ShortName}" HorizontalAlignment="Center"
 					LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
 					TextTrimming="CharacterEllipsis" TextWrapping="Wrap"
-					
 				/>
 			</StackPanel>
 		</DataTemplate>
