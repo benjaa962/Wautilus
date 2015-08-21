@@ -35,8 +35,6 @@ namespace Wautilus.BrowserControls
 
 		public Browser () : base()
 		{
-			//MainLayout.SelectionChanged += OnSelectionChanged;
-			//MainLayout.ItemsSource = Frames;
 		}
 
 		#endregion
@@ -96,14 +94,18 @@ namespace Wautilus.BrowserControls
 				Frames.Remove(Frame);
 		}
 
+		public override void OnApplyTemplate ()
+		{
+			base.OnApplyTemplate();
+			MainLayout = GetTemplateChild("MainLayout") as TabControl;
+
+			MainLayout.ItemsSource       = Frames            ;
+			MainLayout.SelectionChanged += OnSelectionChanged;
+		}
+
 		#endregion
 
 		#region private method
-
-		private void OnSelectionChanged (object sender, SelectionChangedEventArgs e)
-		{
-			IndexForInsertAfterCurrent = CurrentIndex;
-		}
 
 		private void Navigate<T> (T Content, BrowserLocation Location)
 		{
@@ -136,6 +138,11 @@ namespace Wautilus.BrowserControls
 				default:
 					return Frames.Count;
 			}
+		}
+
+		private void OnSelectionChanged (object sender, SelectionChangedEventArgs e)
+		{
+			IndexForInsertAfterCurrent = CurrentIndex;
 		}
 
 		#endregion
