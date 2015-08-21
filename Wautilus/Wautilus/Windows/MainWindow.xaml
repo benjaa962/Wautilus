@@ -9,6 +9,14 @@
 	Width="525" Height="350" Title="MainWindow"
 	>
 	
+	<Window.CommandBindings>
+		<CommandBinding
+			Executed="Open_Executed"
+			CanExecute="Open_CanExecute"
+			Command="ApplicationCommands.Open"
+		/>
+	</Window.CommandBindings>
+	
 	<DockPanel x:Name="MainPanel" LastChildFill="True">
 		<bc:Browser x:Name="MainBrowser" />
 	</DockPanel>

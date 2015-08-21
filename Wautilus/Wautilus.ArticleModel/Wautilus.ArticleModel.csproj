@@ -56,6 +56,7 @@
     <Compile Include="Article\Enums\DeleteOption.cs" />
     <Compile Include="Article\Enums\DriveSizeType.cs" />
     <Compile Include="Article\Enums\SizeTextType.cs" />
+    <Compile Include="Article\Interfaces\IArticleSelectable.cs" />
     <Compile Include="Article\Tools\ArticleBuilder.cs" />
     <Compile Include="Article\Tools\ArticleChecker.cs" />
     <Compile Include="Article\Tools\ArticlesBuilderParameter.cs" />
