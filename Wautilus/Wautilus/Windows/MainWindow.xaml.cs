@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Wautilus.BrowserControls;
 
 namespace Wautilus
 {
@@ -11,8 +12,12 @@ namespace Wautilus
 		public MainWindow () : base()
 		{
 			InitializeComponent();
+
+			MainBrowser.Navigate("Coucou");
+			MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
+
 		}
-		
+
 		#endregion
 
 	}

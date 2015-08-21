@@ -39,9 +39,6 @@ namespace Wautilus.BrowserControls
 
 		public Browser () : base()
 		{
-			Navigate("Coucou");
-			Navigate("Salut", BrowserLocation.AfterCurrent);
-			HasHeaderBar = true;
 		}
 
 		#endregion

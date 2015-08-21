@@ -6,44 +6,40 @@
 	
 	<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 	
-			<DataTemplate x:Key="HeaderTemplate">
-			<Border Padding="5">
-				<Border.InputBindings>
-					<MouseBinding
-						MouseAction="MiddleClick"
-						Command="ApplicationCommands.Close"
-						CommandParameter="{Binding}"
-					/>
-				</Border.InputBindings>
-				<TextBlock MinWidth="170"
-					Text="Binding Path=Content.Title}"
-					Style="{DynamicResource ResourceKey=HeaderBrowserStyle}"
+	<DataTemplate x:Key="HeaderTemplate">
+		<Border Padding="5">
+			<Border.InputBindings>
+				<MouseBinding
+					MouseAction="MiddleClick"
+					Command="ApplicationCommands.Close"
+					CommandParameter="{Binding}"
 				/>
-			</Border>
-		</DataTemplate>
-		
-		<Style x:Key="ItemContainerStyle" TargetType="{x:Type TabItem}">
-			<!--Setter Property="Padding"        Value="0"                               /-->
-			<Setter Property="Header"         Value="{Binding}"                       />
-			<Setter Property="HeaderTemplate" Value="{StaticResource HeaderTemplate}" />
-			<Setter
-				Property="Visibility"
-				Value="{Binding Path=HasHeaderBar, Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}}"
+			</Border.InputBindings>
+			<TextBlock MinWidth="170"
+				Text="Binding Path=Content.Title}"
+				Style="{DynamicResource ResourceKey=HeaderBrowserStyle}"
 			/>
-			<!--Style.Triggers>
-				<DataTrigger
-					Value="True"
-					Binding="{Binding Path=HasHeaderBar, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}}"
-					>
-					<Setter Property="Visibility" Value="Collapsed" />
-				</DataTrigger>
-			</-->
-		</Style>
+		</Border>
+	</DataTemplate>
+	
+	<Style x:Key="ItemContainerStyle" TargetType="{x:Type TabItem}">
+		<Setter Property="Header"         Value="{Binding}"                       />
+		<Setter Property="HeaderTemplate" Value="{StaticResource HeaderTemplate}" />
+		<Setter Property="Visibility">
+			<Setter.Value>
+				<Binding
+					Path="HasHeaderBar"
+					Converter="{StaticResource ResourceKey=BooleanToVisibilityConverter}"
+					RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}"
+				/>
+			</Setter.Value>
+		</Setter>
+	</Style>
 	
 	<ControlTemplate x:Key="BrowserTemplate" TargetType="{x:Type local:Browser}">
 		<TabControl
-		x:Name="MainLayout" Margin="0" Padding="0" BorderThickness="0"
-		ItemContainerStyle="{StaticResource ResourceKey=ItemContainerStyle}"
+			x:Name="MainLayout" Margin="0" Padding="0" BorderThickness="0"
+			ItemContainerStyle="{StaticResource ResourceKey=ItemContainerStyle}"
 		/>
 	</ControlTemplate>
 	
