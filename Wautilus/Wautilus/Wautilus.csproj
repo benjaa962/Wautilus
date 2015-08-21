@@ -59,7 +59,7 @@
     <Compile Include="Pages\FastSideBarPage.xaml.cs">
       <DependentUpon>FastSideBarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MainWindow_Commands.cs" />
+    <Compile Include="Resources\Windows\MainWindow_Commands.cs" />
     <Page Include="Controls\ArticlesWrap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,7 +84,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MainWindow.xaml">
+    <Page Include="Resources\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -100,7 +100,7 @@
       <DependentUpon>DirectoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\ToImageSourceConverter.cs" />
-    <Compile Include="Windows\MainWindow.xaml.cs">
+    <Compile Include="Resources\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
