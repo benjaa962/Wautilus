@@ -16,7 +16,6 @@ namespace Wautilus
 			if (e.Parameter is IArticleSelectable)
 				e.CanExecute = CanOpen(e.Parameter as IArticleSelectable);
 		}
-
 		private void Open_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
 			if (e.Parameter is Article)
@@ -56,6 +55,50 @@ namespace Wautilus
 			if (Article is DirectoryArticle)
 				return ArticleOpenType.Wautilus;
 			return ArticleOpenType.Wautilus;
+		}
+
+		#endregion
+		
+		#region OpenInNewTab
+
+		private void OpenInNewTab_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void OpenInNewTab_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+		}
+
+		#endregion
+
+		#region Cut
+
+		private void Cut_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void Cut_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+		}
+
+		#endregion
+		
+		#region Copy
+
+		private void Copy_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void Copy_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+		}
+
+		#endregion
+		
+		#region Paste
+
+		private void Paste_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void Paste_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
 		}
 
 		#endregion

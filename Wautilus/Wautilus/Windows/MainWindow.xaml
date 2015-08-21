@@ -15,6 +15,26 @@
 			CanExecute="Open_CanExecute"
 			Command="ApplicationCommands.Open"
 		/>
+		<CommandBinding
+			Executed="OpenInNewTab_Executed"
+			CanExecute="OpenInNewTab_CanExecute"
+			Command="{x:Static bc:BrowserCommands.OpenInNewTab}"
+		/>
+		<CommandBinding
+			Executed="Cut_Executed"
+			CanExecute="Cut_CanExecute"
+			Command="ApplicationCommands.Cut"
+		/>
+		<CommandBinding
+			Executed="Copy_Executed"
+			CanExecute="Copy_CanExecute"
+			Command="ApplicationCommands.Copy"
+		/>
+		<CommandBinding
+			Executed="Paste_Executed"
+			CanExecute="Paste_CanExecute"
+			Command="ApplicationCommands.Paste"
+		/>
 	</Window.CommandBindings>
 	
 	<DockPanel x:Name="MainPanel" LastChildFill="True">
