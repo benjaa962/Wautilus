@@ -4,6 +4,33 @@
 	xmlns:local="clr-namespace:Wautilus"
 	>
 	
-	<DataTemplate x:Key="ArticlesTemplate" />
+	<DataTemplate x:Key="ImageNormalTemplate">
+		<StackPanel Width="96" Margin="8">
+			<local:ArticleImage
+				Article="{Binding}"
+				MaxWidth="96" MaxHeight="96"
+				HorizontalAlignment="Center"
+			/>
+			<TextBlock
+				Text="{Binding Path=ShortName}" HorizontalAlignment="Center"
+				LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
+				TextTrimming="CharacterEllipsis" TextWrapping="Wrap"			
+			/>
+		</StackPanel>
+	</DataTemplate>
+	<DataTemplate x:Key="ImageLargeTemplate">
+		<StackPanel Width="128" Margin="8">
+			<local:ArticleImage
+				Article="{Binding}"
+				MaxWidth="128" MaxHeight="128"
+				HorizontalAlignment="Center"
+			/>
+			<TextBlock
+				Text="{Binding Path=ShortName}" HorizontalAlignment="Center"
+				LineHeight="16" Height="32" LineStackingStrategy="MaxHeight"
+				TextTrimming="CharacterEllipsis" TextWrapping="Wrap"
+			/>
+		</StackPanel>
+	</DataTemplate>
 	
 </ResourceDictionary>

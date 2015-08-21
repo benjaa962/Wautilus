@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,6 +72,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\ArticleImage.cs" />
+    <Compile Include="Tools\ToImageSourceConverter.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -104,6 +107,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Wautilus.ArticleModel\Wautilus.ArticleModel.csproj">
+      <Project>{6291ea70-b2d5-4305-8846-3290723892db}</Project>
+      <Name>Wautilus.ArticleModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wautilus.BrowserControls\Wautilus.BrowserControls.csproj">
       <Project>{05e00fc1-9e7f-4adf-9f6e-b987b75a60e5}</Project>
       <Name>Wautilus.BrowserControls</Name>
