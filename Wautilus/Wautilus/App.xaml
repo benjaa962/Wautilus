@@ -9,8 +9,9 @@
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				
-				<ResourceDictionary Source="/Wautilus;component/Templates/ArticleTemplates.xaml"  />
-				<ResourceDictionary Source="/Wautilus;component/Templates/ArticlesTemplates.xaml" />
+				<ResourceDictionary Source="/Wautilus;component/Resources/ArticleTemplates.xaml"  />
+				<ResourceDictionary Source="/Wautilus;component/Resources/ArticlesTemplates.xaml" />
+				<ResourceDictionary Source="/Wautilus;component/Resources/ContextMenus.xaml"      />
 				
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
