@@ -8,8 +8,8 @@
 	xmlns:bc="clr-namespace:Wautilus.BrowserControls;assembly=Wautilus.BrowserControls"
 	Width="525" Height="350" Title="MainWindow"
 	>
-	<StackPanel>
-		<Button Content="Test" Click="Button_Click" />
+	<DockPanel LastChildFill="True">
+		<Button Content="Test" Click="Button_Click" DockPanel.Dock="Top" />
 		<!--bc:Browser
 			x:Name="MainBrowser"
 		/-->
@@ -17,5 +17,5 @@
 			x:Name="A"
 		/>
 		
-	</StackPanel>
+	</DockPanel>
 </Window>

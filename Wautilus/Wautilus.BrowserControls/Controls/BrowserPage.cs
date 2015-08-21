@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace Wautilus.BrowserControls
 {
 
-	public abstract class BrowserPage
+	public abstract class BrowserPage : Page
 	{
 
 		#region constructor
