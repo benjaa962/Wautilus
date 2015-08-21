@@ -17,6 +17,10 @@ namespace Wautilus.BrowserControls
 
 		#region field
 
+		public static readonly DependencyProperty HasHeaderBarProperty = DependencyProperty.Register(
+			"HasHeaderBar", typeof(bool), typeof(Browser), new PropertyMetadata(true)
+		);
+
 		private int IndexForInsertAfterCurrent            = 0;
 		private ObservableCollection<BrowserFrame> Frames = new ObservableCollection<BrowserFrame>();
 
@@ -37,18 +41,23 @@ namespace Wautilus.BrowserControls
 		{
 			Navigate("Coucou");
 			Navigate("Salut", BrowserLocation.AfterCurrent);
+			HasHeaderBar = true;
 		}
 
 		#endregion
 
 		#region property
 
-		public bool Has => true;
-
 		public int Count => Frames.Count;
 
 		public int          CurrentIndex => MainLayout ?. SelectedIndex ?? -1              ;
 		public BrowserFrame CurrentFrame => CurrentIndex >= 0 ? Frames[CurrentIndex] : null;
+
+		public bool HasHeaderBar
+		{
+			get { return (bool)GetValue(HasHeaderBarProperty); }
+			set { SetValue(HasHeaderBarProperty, value);       }
+		}
 
 		#endregion
 

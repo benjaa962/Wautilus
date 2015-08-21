@@ -23,12 +23,12 @@
 		</DataTemplate>
 		
 		<Style x:Key="ItemContainerStyle" TargetType="{x:Type TabItem}">
-			<Setter Property="Padding"        Value="0"                               />
+			<!--Setter Property="Padding"        Value="0"                               /-->
 			<Setter Property="Header"         Value="{Binding}"                       />
 			<Setter Property="HeaderTemplate" Value="{StaticResource HeaderTemplate}" />
 			<Setter
 				Property="Visibility"
-				Value="{Binding Path=Has, Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}}"
+				Value="{Binding Path=HasHeaderBar, Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}}"
 			/>
 			<!--Style.Triggers>
 				<DataTrigger
