@@ -48,6 +48,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\BrowserCommands.cs" />
     <Page Include="Controls\Browser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -63,7 +64,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\NotifiableControl.cs" />
     <Compile Include="Enums\BrowserHeaderBarVisibility.cs" />
     <Compile Include="Enums\BrowserLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
