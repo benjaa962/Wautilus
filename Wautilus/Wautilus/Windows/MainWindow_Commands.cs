@@ -11,28 +11,42 @@ namespace Wautilus
 
 		private void Open_CanExecute (object sender, CanExecuteRoutedEventArgs e)
 		{
+			if (e.Parameter is Article)
+				e.CanExecute = CanOpen(e.Parameter as Article);
 			if (e.Parameter is IArticleSelectable)
-			{
-				var Selectable = e.Parameter as IArticleSelectable;
-				var Article    = Selectable.SelectedArticle       ;
-				var OpenType   = GetOpenType(Article)             ;
-
-				if (Article != null)
-					e.CanExecute = Article.CanOpen(OpenType);
-			}
+				e.CanExecute = CanOpen(e.Parameter as IArticleSelectable);
 		}
 
 		private void Open_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
+			if (e.Parameter is Article)
+				Open(e.Parameter as Article);
 			if (e.Parameter is IArticleSelectable)
-			{
-				var Selectable = e.Parameter as IArticleSelectable;
-				var Article    = Selectable.SelectedArticle       ;
-				var OpenType   = GetOpenType(Article)             ;
+				Open(e.Parameter as IArticleSelectable);
+		}
 
-				if (Article != null)
-					Article.Open(OpenType);
-			}
+		private bool CanOpen (Article Article)
+		{
+			if (Article == null)
+				return false;
+			var OpenType = GetOpenType(Article);
+			return Article.CanOpen(OpenType);
+		}
+		private bool CanOpen (IArticleSelectable Selectable)
+		{
+			return CanOpen(Selectable ?. SelectedArticle);
+		}
+
+		private void Open (Article Article)
+		{
+			if (Article == null)
+				return;
+			var OpenType = GetOpenType(Article);
+			Article.Open(OpenType);
+		}
+		private void Open (IArticleSelectable Selectable)
+		{
+			Open(Selectable ?. SelectedArticle);
 		}
 
 		private ArticleOpenType GetOpenType (Article Article)

@@ -9,13 +9,29 @@
 	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
 	>
 	
+	<UserControl.InputBindings>
+		<MouseBinding
+			MouseAction="LeftDoubleClick"
+			Command="ApplicationCommands.Open"
+			CommandParameter="{Binding}"
+		/>
+	</UserControl.InputBindings>
+	
 	<UserControl.Resources>
 		
         <DataTemplate x:Key="ArticleTemplate">
 			<ContentPresenter
 				Content="{Binding}"
 				ContentTemplate="{StaticResource ResourceKey=ImageNormalTemplate}"
-			/>
+				>
+				<ContentPresenter.InputBindings>
+					<MouseBinding
+						MouseAction="LeftDoubleClick"
+						Command="ApplicationCommands.Open"
+						CommandParameter="{Binding}"
+					/>
+				</ContentPresenter.InputBindings>
+			</ContentPresenter>
         </DataTemplate>
 		
         <ItemsPanelTemplate x:Key="PanelTemplate">
