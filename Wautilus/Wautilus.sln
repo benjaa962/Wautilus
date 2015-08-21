@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus", "Wautilus\Wautil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.BrowserControls", "Wautilus.BrowserControls\Wautilus.BrowserControls.csproj", "{05E00FC1-9E7F-4ADF-9F6E-B987B75A60E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.ArticleModel", "Wautilus.ArticleModel\Wautilus.ArticleModel.csproj", "{6291EA70-B2D5-4305-8846-3290723892DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05E00FC1-9E7F-4ADF-9F6E-B987B75A60E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05E00FC1-9E7F-4ADF-9F6E-B987B75A60E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05E00FC1-9E7F-4ADF-9F6E-B987B75A60E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6291EA70-B2D5-4305-8846-3290723892DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6291EA70-B2D5-4305-8846-3290723892DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6291EA70-B2D5-4305-8846-3290723892DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6291EA70-B2D5-4305-8846-3290723892DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

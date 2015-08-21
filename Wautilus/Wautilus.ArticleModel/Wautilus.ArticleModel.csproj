@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6291EA70-B2D5-4305-8846-3290723892DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wautilus.ArticleModel</RootNamespace>
+    <AssemblyName>Wautilus.ArticleModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Article\Class\Article.cs" />
+    <Compile Include="Article\Class\ArticleCollection.cs" />
+    <Compile Include="Article\Class\DirectoryArticle.cs" />
+    <Compile Include="Article\Class\DriveArticle.cs" />
+    <Compile Include="Article\Class\FileArticle.cs" />
+    <Compile Include="Article\Enums\ArticleImageType.cs" />
+    <Compile Include="Article\Enums\ArticleNameType.cs" />
+    <Compile Include="Article\Enums\ArticleOpenType.cs" />
+    <Compile Include="Article\Enums\ArticleTimeType.cs" />
+    <Compile Include="Article\Enums\ArticleType.cs" />
+    <Compile Include="Article\Enums\DeleteOption.cs" />
+    <Compile Include="Article\Enums\DriveSizeType.cs" />
+    <Compile Include="Article\Enums\SizeTextType.cs" />
+    <Compile Include="Article\Tools\ArticleBuilder.cs" />
+    <Compile Include="Article\Tools\ArticleChecker.cs" />
+    <Compile Include="Article\Tools\ArticlesBuilderParameter.cs" />
+    <Compile Include="Article\Tools\SizeTools.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shell\Class\RecycleBinQueryInfo.cs" />
+    <Compile Include="Shell\Class\ShellExecuteInfo.cs" />
+    <Compile Include="Shell\Class\ShellImageSize.cs" />
+    <Compile Include="Shell\Class\ShFileOperationStructure.cs" />
+    <Compile Include="Shell\Enums\FileOperatorFlag.cs" />
+    <Compile Include="Shell\Enums\FileOperatorType.cs" />
+    <Compile Include="Shell\Enums\ShellFolderAttribute.cs" />
+    <Compile Include="Shell\Enums\ShellFolderEnumType.cs" />
+    <Compile Include="Shell\Enums\ShellImageType.cs" />
+    <Compile Include="Shell\Enums\ShellNameType.cs" />
+    <Compile Include="Shell\Interfaces\IEnumIDList.cs" />
+    <Compile Include="Shell\Interfaces\IShellFolder.cs" />
+    <Compile Include="Shell\Interfaces\IShellItem.cs" />
+    <Compile Include="Shell\Interfaces\IShellItemImageFactory.cs" />
+    <Compile Include="Shell\Tools\RecycleBinTools.cs" />
+    <Compile Include="Shell\Tools\ShellTools.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
