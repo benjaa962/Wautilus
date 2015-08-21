@@ -62,13 +62,13 @@ namespace Wautilus.BrowserControls
 			set { SetValue(HeaderBarVisibilityProperty, value);                             }
 		}
 
-		private bool HasHeaderBar
+		public bool HasHeaderBar
 		{
 			get
 			{
 				return _HasHeaderBar;
             }
-			set
+			private set
 			{
 				if (_HasHeaderBar != value)
 				{
