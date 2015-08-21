@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\ArticlesWrap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Templates\ArticlesTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +77,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controls\ArticleImage.cs" />
+    <Compile Include="Controls\ArticlesWrap.xaml.cs">
+      <DependentUpon>ArticlesWrap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools\ToImageSourceConverter.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

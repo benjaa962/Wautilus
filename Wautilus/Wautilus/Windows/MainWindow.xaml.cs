@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Wautilus.ArticleModel;
 using Wautilus.BrowserControls;
 
 namespace Wautilus
@@ -13,9 +14,17 @@ namespace Wautilus
 		{
 			InitializeComponent();
 
-			MainBrowser.Navigate("Coucou");
+			var Parameter = new ArticlesBuilderParameter
+              {
+				  IncludeDirectories = true,
+				  IncludeFiles = true
+				  , RootPath = @"C:\Home\Cum"
+			};
+
+			A.Articles = ArticleBuilder.BuildCollection(Parameter);
+			//MainBrowser.Navigate("Coucou");
 			//MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
-			MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Auto;
+			//MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Auto;
 
 		}
 
@@ -23,7 +32,7 @@ namespace Wautilus
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
+			//MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
 			/*if (MainBrowser.HeaderBarVisibility == BrowserHeaderBarVisibility.Visible)
 				MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Hidden;
 			else
