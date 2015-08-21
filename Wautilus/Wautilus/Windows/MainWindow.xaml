@@ -59,19 +59,25 @@
 	
 	<DockPanel x:Name="MainPanel" LastChildFill="True">
 		
-		<ToolBar DockPanel.Dock="Top">
+		<ToolBar DataContext="{Binding ElementName=MainBrowser}" DockPanel.Dock="Top">
 			<Button
-				x:Name="BrowseBackButton" Command="NavigationCommands.BrowseBack"
+				x:Name="BrowseBackButton"
+				Command="NavigationCommands.BrowseBack"
+				CommandParameter="{Binding Path=CurrentFrame}"
 				Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
 				ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
 			/>
 			<Button
-				x:Name="BrowseForwardButton" Command="NavigationCommands.BrowseForward"
+				x:Name="BrowseForwardButton"
+				Command="NavigationCommands.BrowseForward"
+				CommandParameter="{Binding Path=CurrentFrame}"
 				Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
 				ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
 			/>
 			<Button
-				x:Name="BrowseHomeButton" Command="NavigationCommands.BrowseHome"
+				x:Name="BrowseHomeButton"
+				Command="NavigationCommands.BrowseHome"
+				CommandParameter="{Binding Path=CurrentFrame}"
 				Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
 				ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
 			/>

@@ -14,14 +14,14 @@ namespace Wautilus
 		{
 			if (e.Parameter is Article)
 				e.CanExecute = CanOpen(e.Parameter as Article);
-			if (e.Parameter is IArticleSelectable)
+			else if (e.Parameter is IArticleSelectable)
 				e.CanExecute = CanOpen(e.Parameter as IArticleSelectable);
 		}
 		private void Open_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
 			if (e.Parameter is Article)
 				Open(e.Parameter as Article);
-			if (e.Parameter is IArticleSelectable)
+			else if (e.Parameter is IArticleSelectable)
 				Open(e.Parameter as IArticleSelectable);
 		}
 
@@ -70,7 +70,7 @@ namespace Wautilus
 		{
 			if (e.Parameter is Article)
 				e.CanExecute = CanOpenInNewTab(e.Parameter as Article);
-			if (e.Parameter is IArticleSelectable)
+			else if (e.Parameter is IArticleSelectable)
 				e.CanExecute = CanOpenInNewTab(e.Parameter as IArticleSelectable);
 
 		}
@@ -78,7 +78,7 @@ namespace Wautilus
 		{
 			if (e.Parameter is Article)
 				OpenInNewTab(e.Parameter as Article);
-			if (e.Parameter is IArticleSelectable)
+			else if (e.Parameter is IArticleSelectable)
 				OpenInNewTab(e.Parameter as IArticleSelectable);
 		}
 
@@ -125,7 +125,6 @@ namespace Wautilus
 		{
 			return (Frame ?. Browser ?. Count ?? 0) > 1;
 		}
-
 		private void Close (BrowserFrame Frame)
 		{
 			if (CanClose(Frame))
@@ -171,9 +170,23 @@ namespace Wautilus
 
 		private void BrowseBack_CanExecute (object sender, CanExecuteRoutedEventArgs e)
 		{
+			if (e.Parameter is BrowserFrame)
+				e.CanExecute = CanBrowseBack(e.Parameter as BrowserFrame);
 		}
 		private void BrowseBack_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
+			if (e.Parameter is BrowserFrame)
+				BrowseBack(e.Parameter as BrowserFrame);
+		}
+
+		private bool CanBrowseBack (BrowserFrame Frame)
+		{
+			return Frame ?. CanGoBack ?? false;
+		}
+		private void BrowseBack (BrowserFrame Frame)
+		{
+			if (CanBrowseBack(Frame))
+				Frame.GoBack();
 		}
 
 		#endregion
@@ -182,9 +195,23 @@ namespace Wautilus
 
 		private void BrowseForward_CanExecute (object sender, CanExecuteRoutedEventArgs e)
 		{
+			if (e.Parameter is BrowserFrame)
+				e.CanExecute = CanBrowseForward(e.Parameter as BrowserFrame);
 		}
 		private void BrowseForward_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
+			if (e.Parameter is BrowserFrame)
+				BrowseForward(e.Parameter as BrowserFrame);
+		}
+
+		private bool CanBrowseForward (BrowserFrame Frame)
+		{
+			return Frame ?. CanGoForward ?? false;
+		}
+		private void BrowseForward (BrowserFrame Frame)
+		{
+			if (CanBrowseForward(Frame))
+				Frame.GoForward();
 		}
 
 		#endregion
@@ -193,9 +220,28 @@ namespace Wautilus
 
 		private void BrowseHome_CanExecute (object sender, CanExecuteRoutedEventArgs e)
 		{
+			if (e.Parameter is BrowserFrame)
+				e.CanExecute = CanBrowseHome(e.Parameter as BrowserFrame);
 		}
 		private void BrowseHome_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
+			if (e.Parameter is BrowserFrame)
+				BrowseHome(e.Parameter as BrowserFrame);
+		}
+
+		private bool CanBrowseHome (BrowserFrame Frame)
+		{
+			return Frame != null;
+		}
+		private void BrowseHome (BrowserFrame Frame)
+		{
+			if (CanBrowseHome (Frame))
+			{
+				string Path   = @"D:\";
+				var Directory = new DirectoryArticle(Path);
+				var Page      = new DirectoryPage(Directory);
+				Frame.Navigate(Page);
+			}
 		}
 
 		#endregion

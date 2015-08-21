@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,6 +16,16 @@ namespace Wautilus.BrowserControls
 		#endregion
 
 		#region field
+
+		public static readonly DependencyProperty CountProperty = DependencyProperty.Register(
+			"Count", typeof(int), typeof(Browser), new PropertyMetadata(0)
+		);
+		public static readonly DependencyProperty CurrentIndexProperty = DependencyProperty.Register(
+			"CurrentIndex", typeof(int), typeof(Browser), new PropertyMetadata(-1)
+		);
+		public static readonly DependencyProperty CurrentFrameProperty = DependencyProperty.Register(
+			"CurrentFrame", typeof(BrowserFrame), typeof(Browser)
+		);
 
 		public static readonly DependencyProperty HeaderBarVisibilityProperty = DependencyProperty.Register(
 			"HeaderBarVisibility", typeof(BrowserHeaderBarVisibility), typeof(Browser),
@@ -47,10 +56,21 @@ namespace Wautilus.BrowserControls
 
 		#region property
 
-		public int Count => Frames.Count;
-
-		public int          CurrentIndex => MainLayout?.SelectedIndex ?? -1                ;
-		public BrowserFrame CurrentFrame => CurrentIndex >= 0 ? Frames[CurrentIndex] : null;
+		public int Count
+		{
+			get { return (int)GetValue(CountProperty);    }
+			private set { SetValue(CountProperty, value); }
+		}
+		public int CurrentIndex
+		{
+			get { return (int)GetValue(CurrentIndexProperty); }
+			private set { SetValue(CurrentIndexProperty, value);                             }
+		}
+		public BrowserFrame CurrentFrame
+		{
+			get { return (BrowserFrame)GetValue(CurrentFrameProperty); }
+			private set { SetValue(CurrentFrameProperty, value);       }
+		}
 
 		public BrowserHeaderBarVisibility HeaderBarVisibility
 		{
@@ -154,6 +174,10 @@ namespace Wautilus.BrowserControls
 
 		private void OnSelectionChanged (object sender, SelectionChangedEventArgs e)
 		{
+			Count        = Frames.Count                                   ;
+			CurrentIndex = MainLayout ?. SelectedIndex ?? -1              ;
+			CurrentFrame = CurrentIndex >= 0 ? Frames[CurrentIndex] : null;
+
 			IndexForInsertAfterCurrent = CurrentIndex;
 		}
 
