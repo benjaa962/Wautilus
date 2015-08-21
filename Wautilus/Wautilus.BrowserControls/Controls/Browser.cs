@@ -35,11 +35,15 @@ namespace Wautilus.BrowserControls
 
 		public Browser () : base()
 		{
+			Navigate("Coucou");
+			Navigate("Salut", BrowserLocation.AfterCurrent);
 		}
 
 		#endregion
 
 		#region property
+
+		public bool Has => true;
 
 		public int Count => Frames.Count;
 
@@ -97,8 +101,8 @@ namespace Wautilus.BrowserControls
 		public override void OnApplyTemplate ()
 		{
 			base.OnApplyTemplate();
-			MainLayout = GetTemplateChild("MainLayout") as TabControl;
-
+			MainLayout = Template.FindName("MainLayout", this) as TabControl;
+			
 			MainLayout.ItemsSource       = Frames            ;
 			MainLayout.SelectionChanged += OnSelectionChanged;
 		}
@@ -131,7 +135,7 @@ namespace Wautilus.BrowserControls
 					return 0;
 				case BrowserLocation.BeforeCurrent:
 				case BrowserLocation.AtCurrent:
-					return CurrentIndex;
+					return Math.Max(0, CurrentIndex);
 				case BrowserLocation.AfterCurrent:
 					return ++IndexForInsertAfterCurrent;
 				case BrowserLocation.AtEnd:

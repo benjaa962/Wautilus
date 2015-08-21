@@ -95,6 +95,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wautilus.BrowserControls\Wautilus.BrowserControls.csproj">
+      <Project>{05e00fc1-9e7f-4adf-9f6e-b987b75a60e5}</Project>
+      <Name>Wautilus.BrowserControls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

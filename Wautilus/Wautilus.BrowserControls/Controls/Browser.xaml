@@ -3,17 +3,52 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:local="clr-namespace:Wautilus.BrowserControls"
 	>
+	
+	<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+	
+			<DataTemplate x:Key="HeaderTemplate">
+			<Border Padding="5">
+				<Border.InputBindings>
+					<MouseBinding
+						MouseAction="MiddleClick"
+						Command="ApplicationCommands.Close"
+						CommandParameter="{Binding}"
+					/>
+				</Border.InputBindings>
+				<TextBlock MinWidth="170"
+					Text="Binding Path=Content.Title}"
+					Style="{DynamicResource ResourceKey=HeaderBrowserStyle}"
+				/>
+			</Border>
+		</DataTemplate>
+		
+		<Style x:Key="ItemContainerStyle" TargetType="{x:Type TabItem}">
+			<Setter Property="Padding"        Value="0"                               />
+			<Setter Property="Header"         Value="{Binding}"                       />
+			<Setter Property="HeaderTemplate" Value="{StaticResource HeaderTemplate}" />
+			<Setter
+				Property="Visibility"
+				Value="{Binding Path=Has, Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}}"
+			/>
+			<!--Style.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding Path=HasHeaderBar, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}}"
+					>
+					<Setter Property="Visibility" Value="Collapsed" />
+				</DataTrigger>
+			</-->
+		</Style>
+	
+	<ControlTemplate x:Key="BrowserTemplate" TargetType="{x:Type local:Browser}">
+		<TabControl
+		x:Name="MainLayout" Margin="0" Padding="0" BorderThickness="0"
+		ItemContainerStyle="{StaticResource ResourceKey=ItemContainerStyle}"
+		/>
+	</ControlTemplate>
+	
 	<Style TargetType="{x:Type local:Browser}">
-		<Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:Browser}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-		</Setter>
+		<Setter Property="Template" Value="{StaticResource ResourceKey=BrowserTemplate}" />
 	</Style>
+	
 </ResourceDictionary>
