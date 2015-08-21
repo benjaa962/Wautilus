@@ -9,6 +9,64 @@
 	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
 	>
 	
-	<ListBox x:Name="MainBox" />
+	<bc:BrowserPage.InputBindings>
+		<MouseBinding
+			MouseAction="LeftDoubleClick"
+			Command="ApplicationCommands.Open"
+			CommandParameter="{Binding}"
+		/>
+	</bc:BrowserPage.InputBindings>
+	
+	<bc:BrowserPage.Resources>
+		
+        <DataTemplate x:Key="ArticleTemplate">
+			<ContentPresenter
+				Content="{Binding}"
+				ContentTemplate="{StaticResource ResourceKey=SideBarArticleTemplate}"
+				>
+				<ContentPresenter.InputBindings>
+					<MouseBinding
+						MouseAction="LeftDoubleClick"
+						Command="ApplicationCommands.Open"
+						CommandParameter="{Binding}"
+					/>
+					<MouseBinding
+						MouseAction="MiddleClick"
+						Command="{x:Static bc:BrowserCommands.OpenInNewTab}"
+						CommandParameter="{Binding}"
+					/>
+				</ContentPresenter.InputBindings>
+			</ContentPresenter>
+        </DataTemplate>
+		
+        <ItemsPanelTemplate x:Key="PanelTemplate">
+			<WrapPanel />
+        </ItemsPanelTemplate>
+		
+	</bc:BrowserPage.Resources>
+	
+	<ListBox
+		x:Name="MainBox" Background="LightGray"
+		SelectionMode="Extended" BorderThickness="0"
+		ItemsSource="{Binding Path=Articles}"
+		ItemTemplate="{StaticResource ResourceKey=ArticleTemplate}"
+		VerticalContentAlignment="Bottom"
+		ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+		ScrollViewer.VerticalScrollBarVisibility="Auto"
+		>
+		<ListBox.Style>
+			<Style TargetType="{x:Type ListBox}">
+				<Setter Property="ContextMenu" Value="{StaticResource ResourceKey=ArticlesContextMenu}" />
+				<Style.Triggers>
+					<DataTrigger Binding="{Binding Path=SelectedItems.Count, ElementName=MainBox}" Value="0">
+						<Setter Property="ContextMenu" Value="{x:Null}" />
+					</DataTrigger>
+					<DataTrigger Binding="{Binding Path=SelectedItems.Count, ElementName=MainBox}" Value="1">
+						<Setter Property="ContextMenu" Value="{StaticResource ResourceKey=ArticleContextMenu}" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+		</ListBox.Style>
+	</ListBox>
 	
 </bc:BrowserPage>

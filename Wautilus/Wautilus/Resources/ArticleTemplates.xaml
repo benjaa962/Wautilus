@@ -4,6 +4,29 @@
 	xmlns:local="clr-namespace:Wautilus"
 	>
 	
+	<DataTemplate x:Key="SideBarArticleTemplate">
+		<StackPanel Width="96" Margin="2" Orientation="Vertical"
+					HorizontalAlignment="Center"
+					>
+			<StackPanel Orientation="Horizontal">
+				<local:ArticleImage
+					Article="{Binding}" Width="24" Height="24"
+					HorizontalAlignment="Left" VerticalAlignment="Bottom"
+				/>				
+				<TextBlock
+					Width="72" TextAlignment="Right"
+					Text="{Binding Path=ShortName}" TextTrimming="CharacterEllipsis"
+					HorizontalAlignment="Right" VerticalAlignment="Bottom"
+				/>
+			</StackPanel>
+			<ProgressBar
+				Value="{Binding Path=UsedSize, Mode=OneWay}"
+				Maximum="{Binding Path=TotalSize, Mode=OneWay}"
+				Height="4"	 
+			/>
+		</StackPanel>
+	</DataTemplate>
+	
 	<DataTemplate x:Key="ImageNormalTemplate">
 		<StackPanel Width="96" Margin="8">
 			<local:ArticleImage

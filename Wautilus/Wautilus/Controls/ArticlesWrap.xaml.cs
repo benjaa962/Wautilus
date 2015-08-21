@@ -22,7 +22,7 @@ namespace Wautilus
 		public ArticlesWrap () : base()
 		{
 			InitializeComponent();
-			RootLayout.DataContext = this;
+			MainBox.DataContext = this;
 
 			MainBox.SelectionChanged += OnSelectionChanged;
 		}
