@@ -166,6 +166,46 @@ namespace Wautilus
 
 		#endregion
 		
+		#region Properties
+
+		private void Properties_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+			if (e.Parameter is Article)
+				e.CanExecute = CanProperties(e.Parameter as Article);
+			else if (e.Parameter is IArticleSelectable)
+				e.CanExecute = CanProperties(e.Parameter as IArticleSelectable);
+		}
+		private void Properties_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter is Article)
+				Properties(e.Parameter as Article);
+			else if (e.Parameter is IArticleSelectable)
+				Properties(e.Parameter as IArticleSelectable);
+		}
+
+		private bool CanProperties (Article Article)
+		{
+			if (Article == null)
+				return false;
+			return Article.CanOpen(ArticleOpenType.Properties);
+		}
+		private bool CanProperties (IArticleSelectable Selectable)
+		{
+			return CanOpen(Selectable ?. SelectedArticle);
+		}
+
+		private void Properties (Article Article)
+		{
+			if (CanProperties(Article))
+				Article.Open(ArticleOpenType.Properties);
+		}
+		private void Properties (IArticleSelectable Selectable)
+		{
+			Open(Selectable ?. SelectedArticle);
+		}
+
+		#endregion
+		
 		#region BrowseBack
 
 		private void BrowseBack_CanExecute (object sender, CanExecuteRoutedEventArgs e)
