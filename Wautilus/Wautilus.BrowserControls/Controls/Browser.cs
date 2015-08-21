@@ -132,7 +132,7 @@ namespace Wautilus.BrowserControls
 			var Index = GetIndexForInsert(Location);
 			var Frame = new BrowserFrame(this, Content);
 
-			Frames.Insert(Index, Frame);
+			Frames.Add(Frame);
 		}
 
 		private int GetIndexForInsert (BrowserLocation Location)
@@ -145,7 +145,7 @@ namespace Wautilus.BrowserControls
 				case BrowserLocation.AtCurrent:
 					return Math.Max(0, CurrentIndex);
 				case BrowserLocation.AfterCurrent:
-					return Math.Min(Count, ++IndexForInsertAfterCurrent);
+					return ++IndexForInsertAfterCurrent;
 				case BrowserLocation.AtEnd:
 				default:
 					return Frames.Count;

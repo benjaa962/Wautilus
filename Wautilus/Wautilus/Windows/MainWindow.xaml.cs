@@ -14,7 +14,7 @@ namespace Wautilus
 		{
 			InitializeComponent();
 
-			var Path      = @"D:\";
+			var Path      = @"C:\Home";
 			var Directory = new DirectoryArticle(Path);
 			var Page      = new DirectoryPage(Directory);
 			MainBrowser.Navigate(Page);

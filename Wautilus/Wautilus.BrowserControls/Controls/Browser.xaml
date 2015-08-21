@@ -4,17 +4,13 @@
 	xmlns:local="clr-namespace:Wautilus.BrowserControls"
 	>
 	
-	<RelativeSource
-		x:Key="BrowserSource"
-		Mode="FindAncestor" AncestorType="{x:Type local:Browser}"
-	/>
 	<Binding
-		x:Key="CountBinding" Path="Count"
-		RelativeSource="{StaticResource ResourceKey=BrowserSource}"
+		x:Key="CountBinding" Path="Items.Count"
+		RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}"
 	/>
 	<Binding
 		x:Key="HeaderBarVisibilityBinding" Path="HeaderBarVisibility"
-		RelativeSource="{StaticResource ResourceKey=BrowserSource}"
+		RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}"
 	/>
 	
 	<DataTemplate x:Key="HeaderTemplate">
@@ -26,8 +22,8 @@
 					CommandParameter="{Binding}"
 				/>
 			</Border.InputBindings>
-			<TextBlock MinWidth="170"
-				Text="{Binding Path=Content.Title}"
+			<TextBlock
+				Text="{Binding Path=Content.Title}" MinWidth="170"
 				Style="{DynamicResource ResourceKey=HeaderBrowserStyle}"
 			/>
 		</Border>
@@ -41,7 +37,11 @@
 			<DataTrigger
 				Value="{x:Static local:BrowserHeaderBarVisibility.Hidden}"
 				Binding="{StaticResource ResourceKey=HeaderBarVisibilityBinding}"
-			/>
+				>
+				<DataTrigger.Setters>
+					<Setter Property="Visibility" Value="Collapsed" />
+				</DataTrigger.Setters>
+			</DataTrigger>
             <MultiDataTrigger>
 				<MultiDataTrigger.Conditions>
 					<Condition
