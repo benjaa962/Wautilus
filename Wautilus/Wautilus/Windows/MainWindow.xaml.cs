@@ -14,30 +14,14 @@ namespace Wautilus
 		{
 			InitializeComponent();
 
-			var Parameter = new ArticlesBuilderParameter
-              {
-				  IncludeDirectories = true,
-				  IncludeFiles = true
-				  , RootPath = @"C:\Home\Cum"
-			};
-
-			A.Articles = ArticleBuilder.BuildCollection(Parameter);
-			//MainBrowser.Navigate("Coucou");
-			//MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
-			//MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Auto;
-
+			var Path      = @"C:\Home\Cum";
+			var Directory = new DirectoryArticle(Path);
+			var Page      = new DirectoryPage(Directory);
+			MainBrowser.Navigate(Page);
 		}
 
 		#endregion
 
-		private void Button_Click(object sender, RoutedEventArgs e)
-		{
-			//MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
-			/*if (MainBrowser.HeaderBarVisibility == BrowserHeaderBarVisibility.Visible)
-				MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Hidden;
-			else
-				MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Visible;*/
-        }
 	}
 
 }
