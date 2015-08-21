@@ -101,6 +101,7 @@ namespace Wautilus.ArticleModel
 		{
 			switch (Type)
 			{
+				case ArticleOpenType.Wautilus:
 				case ArticleOpenType.MainApplication:
 				case ArticleOpenType.Properties:
 					return Exists;

@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using Wautilus.ArticleModel;
+using Wautilus.BrowserControls;
 
 namespace Wautilus
 {
@@ -38,10 +39,14 @@ namespace Wautilus
 
 		private void Open (Article Article)
 		{
-			if (Article == null)
-				return;
-			var OpenType = GetOpenType(Article);
-			Article.Open(OpenType);
+			if (Article is FileArticle)
+				Article.Open(ArticleOpenType.MainApplication);
+			if (Article is DirectoryArticle)
+			{
+				var Directory = Article as DirectoryArticle;
+				var Page      = new DirectoryPage(Directory);
+				MainBrowser.Navigate(Page);
+			}
 		}
 		private void Open (IArticleSelectable Selectable)
 		{
@@ -63,11 +68,70 @@ namespace Wautilus
 
 		private void OpenInNewTab_CanExecute (object sender, CanExecuteRoutedEventArgs e)
 		{
+			if (e.Parameter is Article)
+				e.CanExecute = CanOpenInNewTab(e.Parameter as Article);
+			if (e.Parameter is IArticleSelectable)
+				e.CanExecute = CanOpenInNewTab(e.Parameter as IArticleSelectable);
+
 		}
 		private void OpenInNewTab_Executed (object sender, ExecutedRoutedEventArgs e)
 		{
+			if (e.Parameter is Article)
+				OpenInNewTab(e.Parameter as Article);
+			if (e.Parameter is IArticleSelectable)
+				OpenInNewTab(e.Parameter as IArticleSelectable);
 		}
 
+		private bool CanOpenInNewTab (Article Article)
+		{
+			return Article is DirectoryArticle
+				&& Article.CanOpen(ArticleOpenType.Wautilus);
+		}
+		private bool CanOpenInNewTab (IArticleSelectable Selectable)
+		{
+			return CanOpenInNewTab(Selectable ?. SelectedArticle);
+		}
+
+		private void OpenInNewTab (Article Article)
+		{
+			if (Article is DirectoryArticle)
+			{
+				var Directory = Article as DirectoryArticle;
+				var Page      = new DirectoryPage(Directory);
+				MainBrowser.Navigate(Page, BrowserLocation.AfterCurrent);
+			}
+		}
+		private void OpenInNewTab (IArticleSelectable Selectable)
+		{
+			Open(Selectable ?. SelectedArticle);
+		}
+
+		#endregion
+
+		#region Close
+
+		private void Close_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+			if (e.Parameter is BrowserFrame)
+				e.CanExecute = CanClose(e.Parameter as BrowserFrame);
+		}
+		private void Close_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+			if (e.Parameter is BrowserFrame)
+				Close(e.Parameter as BrowserFrame);
+		}
+
+		private bool CanClose (BrowserFrame Frame)
+		{
+			return (Frame ?. Browser ?. Count ?? 0) > 1;
+		}
+
+		private void Close (BrowserFrame Frame)
+		{
+			if (CanClose(Frame))
+				Frame.Browser.Close(Frame);
+		}
+		
 		#endregion
 
 		#region Cut

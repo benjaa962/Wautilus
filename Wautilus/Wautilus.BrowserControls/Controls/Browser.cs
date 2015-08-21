@@ -145,7 +145,7 @@ namespace Wautilus.BrowserControls
 				case BrowserLocation.AtCurrent:
 					return Math.Max(0, CurrentIndex);
 				case BrowserLocation.AfterCurrent:
-					return ++IndexForInsertAfterCurrent;
+					return Math.Min(Count, ++IndexForInsertAfterCurrent);
 				case BrowserLocation.AtEnd:
 				default:
 					return Frames.Count;

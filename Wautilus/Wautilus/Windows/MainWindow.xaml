@@ -21,7 +21,12 @@
 			Command="{x:Static bc:BrowserCommands.OpenInNewTab}"
 		/>
 		<CommandBinding
-			Executed="Cut_Executed"
+			Executed="Close_Executed"
+			CanExecute="Close_CanExecute"
+			Command="ApplicationCommands.Close"
+		/>
+		<CommandBinding
+			Executed="OpenInNewTab_Executed"
 			CanExecute="Cut_CanExecute"
 			Command="ApplicationCommands.Cut"
 		/>
@@ -38,7 +43,7 @@
 	</Window.CommandBindings>
 	
 	<DockPanel x:Name="MainPanel" LastChildFill="True">
-		<bc:Browser x:Name="MainBrowser" />
+		<bc:Browser x:Name="MainBrowser" HeaderBarVisibility="Auto" />
 	</DockPanel>
 	
 </Window>
