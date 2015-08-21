@@ -201,7 +201,7 @@ namespace Wautilus
 		}
 		private void Properties (IArticleSelectable Selectable)
 		{
-			Open(Selectable ?. SelectedArticle);
+			Properties(Selectable ?. SelectedArticle);
 		}
 
 		#endregion

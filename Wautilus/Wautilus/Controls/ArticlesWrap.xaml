@@ -26,6 +26,11 @@
 				ContentTemplate="{StaticResource ResourceKey=ImageNormalTemplate}"
 				>
 				<ContentPresenter.InputBindings>
+					<KeyBinding
+						Key="F4"
+						Command="ApplicationCommands.Properties"
+						CommandParameter="{Binding ElementName=MainBox}"						
+						/>
 					<MouseBinding
 						MouseAction="LeftDoubleClick"
 						Command="ApplicationCommands.Open"
