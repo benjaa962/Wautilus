@@ -1,9 +1,0 @@
-﻿<Application
-	x:Class="Wautilus.App" StartupUri="Windows/MainWindow.xaml"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:local="clr-namespace:Wautilus"
-	>
-	<Application.Resources>
-	</Application.Resources>
-</Application>
