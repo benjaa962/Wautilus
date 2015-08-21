@@ -13,12 +13,12 @@
 		<CommandBinding
 			Executed="Open_Executed"
 			CanExecute="Open_CanExecute"
-			Command="ApplicationCommands.Open"
+			Command="ApplicationCommands.Open"	
 		/>
 		<CommandBinding
 			Executed="OpenInNewTab_Executed"
 			CanExecute="OpenInNewTab_CanExecute"
-			Command="{x:Static bc:BrowserCommands.OpenInNewTab}"
+			Command="{x:Static bc:BrowserCommands.OpenInNewTab}"			
 		/>
 		<CommandBinding
 			Executed="Close_Executed"
@@ -40,10 +40,45 @@
 			CanExecute="Paste_CanExecute"
 			Command="ApplicationCommands.Paste"
 		/>
+		<CommandBinding
+			Executed="BrowseBack_Executed"
+			CanExecute="BrowseBack_CanExecute"
+			Command="NavigationCommands.BrowseBack"
+		/>
+		<CommandBinding
+			Executed="BrowseForward_Executed"
+			CanExecute="BrowseForward_CanExecute"
+			Command="NavigationCommands.BrowseForward"
+		/>
+		<CommandBinding
+			Executed="BrowseHome_Executed"
+			CanExecute="BrowseHome_CanExecute"
+			Command="NavigationCommands.BrowseHome"
+		/>
 	</Window.CommandBindings>
 	
 	<DockPanel x:Name="MainPanel" LastChildFill="True">
+		
+		<ToolBar DockPanel.Dock="Top">
+			<Button
+				x:Name="BrowseBackButton" Command="NavigationCommands.BrowseBack"
+				Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+				ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+			/>
+			<Button
+				x:Name="BrowseForwardButton" Command="NavigationCommands.BrowseForward"
+				Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+				ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+			/>
+			<Button
+				x:Name="BrowseHomeButton" Command="NavigationCommands.BrowseHome"
+				Content="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+				ToolTip="{Binding Path=Command.Text, RelativeSource={RelativeSource Mode=Self}}"
+			/>
+		</ToolBar>
+		
 		<bc:Browser x:Name="MainBrowser" HeaderBarVisibility="Auto" />
+		
 	</DockPanel>
 	
 </Window>

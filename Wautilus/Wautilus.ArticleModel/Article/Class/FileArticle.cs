@@ -120,7 +120,13 @@ namespace Wautilus.ArticleModel
 			switch (Type)
 			{
 				case ArticleOpenType.MainApplication:
-					Process.Start(FullName);
+					try
+					{
+						Process.Start(FullName);
+					}
+					catch
+					{
+					}
 					break;
 				case ArticleOpenType.Properties:
 					ShellTools.OpenProperties(FullName);

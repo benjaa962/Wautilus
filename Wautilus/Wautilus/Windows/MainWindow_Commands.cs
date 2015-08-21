@@ -166,6 +166,39 @@ namespace Wautilus
 		}
 
 		#endregion
+		
+		#region BrowseBack
+
+		private void BrowseBack_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void BrowseBack_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+		}
+
+		#endregion
+		
+		#region BrowseForward
+
+		private void BrowseForward_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void BrowseForward_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+		}
+
+		#endregion
+		
+		#region BrowseHome
+
+		private void BrowseHome_CanExecute (object sender, CanExecuteRoutedEventArgs e)
+		{
+		}
+		private void BrowseHome_Executed (object sender, ExecutedRoutedEventArgs e)
+		{
+		}
+
+		#endregion
 
 	}
 
