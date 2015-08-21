@@ -16,6 +16,7 @@ namespace Wautilus.BrowserControls
 			LoadCompleted         += OnLoadCompleted              ;
 			NavigationUIVisibility = NavigationUIVisibility.Hidden;
 
+
         }
 		public BrowserFrame (Browser Browser, object Content) : this(Browser)
 		{
@@ -48,7 +49,10 @@ namespace Wautilus.BrowserControls
 		{
 			var Page = e.Content as BrowserPage;
 			if (Page != null)
+			{
 				Page.Frame = this;
+				Page.Refresh();
+			}
 		}
 		
 		#endregion
