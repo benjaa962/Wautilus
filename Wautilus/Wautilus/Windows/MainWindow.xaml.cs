@@ -15,6 +15,7 @@ namespace Wautilus
 
 			MainBrowser.Navigate("Coucou");
 			MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
+			MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Hidden;
 
 		}
 

@@ -63,6 +63,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\NotifiableControl.cs" />
     <Compile Include="Enums\BrowserHeaderBarVisibility.cs" />
     <Compile Include="Enums\BrowserLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

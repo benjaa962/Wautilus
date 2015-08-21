@@ -7,7 +7,7 @@ using System.Windows.Controls;
 namespace Wautilus.BrowserControls
 {
 
-	public class Browser : Control
+	public class Browser : NotifiableControl
 	{
 
 		#region const
@@ -25,6 +25,8 @@ namespace Wautilus.BrowserControls
 
 		private int IndexForInsertAfterCurrent            = 0;
 		private ObservableCollection<BrowserFrame> Frames = new ObservableCollection<BrowserFrame>();
+
+		private bool _HasHeaderBar = true;
 
 		private TabControl MainLayout;
 
@@ -57,10 +59,24 @@ namespace Wautilus.BrowserControls
 		public BrowserHeaderBarVisibility HeaderBarVisibility
 		{
 			get { return (BrowserHeaderBarVisibility)GetValue(HeaderBarVisibilityProperty); }
-			set { SetValue(HeaderBarVisibilityProperty, value); }
+			set { SetValue(HeaderBarVisibilityProperty, value);                             }
 		}
 
-		private bool HasHeaderBar { get; set; } = true;
+		private bool HasHeaderBar
+		{
+			get
+			{
+				return _HasHeaderBar;
+            }
+			set
+			{
+				if (_HasHeaderBar != value)
+				{
+					_HasHeaderBar = value;
+					OnPropertyChanged("HasHeaderBar");
+                }
+			}
+		}
 
 		#endregion
 
