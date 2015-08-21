@@ -16,12 +16,12 @@ namespace Wautilus
 			InitializeComponent();
 			var Page = new TestPage();
 			Browser.Navigate(Page);
-			var a = Page.Browser;
+			//var a = Page.Browser;
 			/*var Parameter = new ArticlesBuilderParameter
 			{
 				IncludeFiles       = true ,
                 IncludeDirectories = false,
-				RootPath =  @"C:\Home",
+				RootPath =  @"C:\Home\Cum",
 			};
 			var Articles = ArticleBuilder.BuildCollection(Parameter);
 			Test.Articles = Articles;*/

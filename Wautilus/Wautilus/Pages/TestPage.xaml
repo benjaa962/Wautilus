@@ -11,11 +11,9 @@
 	Title="TestPage"
 	>
 	
-	<ScrollViewer VerticalScrollBarVisibility="Auto">
-		<StackPanel Background="DimGray">
-			<Label Content="Coucou" />
-			<ac:ArticlesWrap x:Name="MainLayout" />
-		</StackPanel>
-	</ScrollViewer>
+	<DockPanel >
+		<Label Content="Coucou" DockPanel.Dock="Top" />
+		<ac:ArticlesWrap x:Name="MainLayout" />
+	</DockPanel>
 	
 </bc:BrowserPage>
