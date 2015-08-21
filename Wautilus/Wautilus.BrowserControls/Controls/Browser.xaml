@@ -4,8 +4,6 @@
 	xmlns:local="clr-namespace:Wautilus.BrowserControls"
 	>
 	
-	<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-	
 	<RelativeSource
 		x:Key="BrowserSource"
 		Mode="FindAncestor" AncestorType="{x:Type local:Browser}"
