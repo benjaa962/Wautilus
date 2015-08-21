@@ -11,7 +11,7 @@
 	<Grid>
 		<bc:Browser
 			x:Name="MainBrowser"
-			HasHeaderBar="true"
+			
 		/>
 	</Grid>
 </Window>

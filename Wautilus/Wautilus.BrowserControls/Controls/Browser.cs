@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,7 +8,7 @@ namespace Wautilus.BrowserControls
 {
 
 	public class Browser : Control
-    {
+	{
 
 		#region const
 
@@ -17,28 +18,31 @@ namespace Wautilus.BrowserControls
 
 		#region field
 
-		public static readonly DependencyProperty HasHeaderBarProperty = DependencyProperty.Register(
-			"HasHeaderBar", typeof(bool), typeof(Browser), new PropertyMetadata(true)
+		public static readonly DependencyProperty HeaderBarVisibilityProperty = DependencyProperty.Register(
+			"HeaderBarVisibility", typeof(BrowserHeaderBarVisibility), typeof(Browser),
+			new PropertyMetadata(BrowserHeaderBarVisibility.Visible, OnHeaderBarVisibilityPropertyChanged)
 		);
 
 		private int IndexForInsertAfterCurrent            = 0;
 		private ObservableCollection<BrowserFrame> Frames = new ObservableCollection<BrowserFrame>();
 
 		private TabControl MainLayout;
-		
+
 		#endregion
 
 		#region constructor
 
 		static Browser ()
-        {
+		{
 			var Type     = typeof(Browser)                    ;
 			var MetaData = new FrameworkPropertyMetadata(Type);
-            DefaultStyleKeyProperty.OverrideMetadata(Type, MetaData);
-        }
+			DefaultStyleKeyProperty.OverrideMetadata(Type, MetaData);
+		}
 
-		public Browser () : base()
+		public Browser() : base()
 		{
+			ApplyHeaderBarVisibility();
+            Frames.CollectionChanged += OnFramesCollectionChanged;
 		}
 
 		#endregion
@@ -47,14 +51,16 @@ namespace Wautilus.BrowserControls
 
 		public int Count => Frames.Count;
 
-		public int          CurrentIndex => MainLayout ?. SelectedIndex ?? -1              ;
+		public int          CurrentIndex => MainLayout?.SelectedIndex ?? -1                ;
 		public BrowserFrame CurrentFrame => CurrentIndex >= 0 ? Frames[CurrentIndex] : null;
 
-		public bool HasHeaderBar
+		public BrowserHeaderBarVisibility HeaderBarVisibility
 		{
-			get { return (bool)GetValue(HasHeaderBarProperty); }
-			set { SetValue(HasHeaderBarProperty, value);       }
+			get { return (BrowserHeaderBarVisibility)GetValue(HeaderBarVisibilityProperty); }
+			set { SetValue(HeaderBarVisibilityProperty, value); }
 		}
+
+		private bool HasHeaderBar { get; set; } = true;
 
 		#endregion
 
@@ -111,7 +117,9 @@ namespace Wautilus.BrowserControls
 			
 			MainLayout.ItemsSource       = Frames            ;
 			MainLayout.SelectionChanged += OnSelectionChanged;
-		}
+
+			ApplyHeaderBarVisibility();
+        }
 
 		#endregion
 
@@ -149,6 +157,24 @@ namespace Wautilus.BrowserControls
 					return Frames.Count;
 			}
 		}
+
+		private void ApplyHeaderBarVisibility ()
+		{
+			HasHeaderBar = HeaderBarVisibility == BrowserHeaderBarVisibility.Visible
+				|| (HeaderBarVisibility == BrowserHeaderBarVisibility.Auto && Count > 1);
+		}
+
+		private static void OnHeaderBarVisibilityPropertyChanged (DependencyObject sender, DependencyPropertyChangedEventArgs e)
+		{
+			var Control = sender as Browser;
+			if (Control != null)
+				Control.ApplyHeaderBarVisibility();
+        }
+
+		private void OnFramesCollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
+		{
+			ApplyHeaderBarVisibility();
+        }
 
 		private void OnSelectionChanged (object sender, SelectionChangedEventArgs e)
 		{
