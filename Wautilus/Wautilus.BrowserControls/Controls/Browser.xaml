@@ -6,6 +6,19 @@
 	
 	<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 	
+	<RelativeSource
+		x:Key="BrowserSource"
+		Mode="FindAncestor" AncestorType="{x:Type local:Browser}"
+	/>
+	<Binding
+		x:Key="CountBinding" Path="Count"
+		RelativeSource="{StaticResource ResourceKey=BrowserSource}"
+	/>
+	<Binding
+		x:Key="HeaderBarVisibilityBinding" Path="HeaderBarVisibility"
+		RelativeSource="{StaticResource ResourceKey=BrowserSource}"
+	/>
+	
 	<DataTemplate x:Key="HeaderTemplate">
 		<Border Padding="5">
 			<Border.InputBindings>
@@ -16,7 +29,7 @@
 				/>
 			</Border.InputBindings>
 			<TextBlock MinWidth="170"
-				Text="Binding Path=Content.Title}"
+				Text="{Binding Path=Content.Title}"
 				Style="{DynamicResource ResourceKey=HeaderBrowserStyle}"
 			/>
 		</Border>
@@ -25,15 +38,43 @@
 	<Style x:Key="ItemContainerStyle" TargetType="{x:Type TabItem}">
 		<Setter Property="Header"         Value="{Binding}"                       />
 		<Setter Property="HeaderTemplate" Value="{StaticResource HeaderTemplate}" />
-		<Setter Property="Visibility">
-			<Setter.Value>
-				<Binding
-					Path="HasHeaderBar"
-					Converter="{StaticResource ResourceKey=BooleanToVisibilityConverter}"
-					RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Browser}}"
-				/>
-			</Setter.Value>
-		</Setter>
+		<Setter Property="Visibility" Value="Visible" />
+		<Style.Triggers>
+			<DataTrigger
+				Value="{x:Static local:BrowserHeaderBarVisibility.Hidden}"
+				Binding="{StaticResource ResourceKey=HeaderBarVisibilityBinding}"
+			/>
+            <MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="0"
+						Binding="{StaticResource ResourceKey=CountBinding}"
+					/>
+					<Condition
+						Value="{x:Static local:BrowserHeaderBarVisibility.Auto}"
+						Binding="{StaticResource ResourceKey=HeaderBarVisibilityBinding}"
+					/>
+				</MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter Property="Visibility" Value="Collapsed" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="1"
+						Binding="{StaticResource ResourceKey=CountBinding}"
+					/>
+					<Condition
+						Value="{x:Static local:BrowserHeaderBarVisibility.Auto}"
+						Binding="{StaticResource ResourceKey=HeaderBarVisibilityBinding}"
+					/>
+                </MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter Property="Visibility" Value="Collapsed" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+		</Style.Triggers>
 	</Style>
 	
 	<ControlTemplate x:Key="BrowserTemplate" TargetType="{x:Type local:Browser}">

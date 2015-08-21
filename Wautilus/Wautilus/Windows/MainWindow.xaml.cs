@@ -24,7 +24,11 @@ namespace Wautilus
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			MainBrowser.Navigate("Salut", BrowserLocation.AfterCurrent);
-		}
+			/*if (MainBrowser.HeaderBarVisibility == BrowserHeaderBarVisibility.Visible)
+				MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Hidden;
+			else
+				MainBrowser.HeaderBarVisibility = BrowserHeaderBarVisibility.Visible;*/
+        }
 	}
 
 }

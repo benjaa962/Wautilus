@@ -7,7 +7,7 @@ using System.Windows.Controls;
 namespace Wautilus.BrowserControls
 {
 
-	public class Browser : NotifiableControl
+	public class Browser : Control
 	{
 
 		#region const
@@ -20,13 +20,11 @@ namespace Wautilus.BrowserControls
 
 		public static readonly DependencyProperty HeaderBarVisibilityProperty = DependencyProperty.Register(
 			"HeaderBarVisibility", typeof(BrowserHeaderBarVisibility), typeof(Browser),
-			new PropertyMetadata(BrowserHeaderBarVisibility.Visible, OnHeaderBarVisibilityPropertyChanged)
+			new PropertyMetadata(BrowserHeaderBarVisibility.Visible)
 		);
 
 		private int IndexForInsertAfterCurrent            = 0;
 		private ObservableCollection<BrowserFrame> Frames = new ObservableCollection<BrowserFrame>();
-
-		private bool _HasHeaderBar = true;
 
 		private TabControl MainLayout;
 
@@ -43,8 +41,6 @@ namespace Wautilus.BrowserControls
 
 		public Browser() : base()
 		{
-			ApplyHeaderBarVisibility();
-            Frames.CollectionChanged += OnFramesCollectionChanged;
 		}
 
 		#endregion
@@ -60,22 +56,6 @@ namespace Wautilus.BrowserControls
 		{
 			get { return (BrowserHeaderBarVisibility)GetValue(HeaderBarVisibilityProperty); }
 			set { SetValue(HeaderBarVisibilityProperty, value);                             }
-		}
-
-		public bool HasHeaderBar
-		{
-			get
-			{
-				return _HasHeaderBar;
-            }
-			private set
-			{
-				if (_HasHeaderBar != value)
-				{
-					_HasHeaderBar = value;
-					OnPropertyChanged("HasHeaderBar");
-                }
-			}
 		}
 
 		#endregion
@@ -133,8 +113,6 @@ namespace Wautilus.BrowserControls
 			
 			MainLayout.ItemsSource       = Frames            ;
 			MainLayout.SelectionChanged += OnSelectionChanged;
-
-			ApplyHeaderBarVisibility();
         }
 
 		#endregion
@@ -173,24 +151,6 @@ namespace Wautilus.BrowserControls
 					return Frames.Count;
 			}
 		}
-
-		private void ApplyHeaderBarVisibility ()
-		{
-			HasHeaderBar = HeaderBarVisibility == BrowserHeaderBarVisibility.Visible
-				|| (HeaderBarVisibility == BrowserHeaderBarVisibility.Auto && Count > 1);
-		}
-
-		private static void OnHeaderBarVisibilityPropertyChanged (DependencyObject sender, DependencyPropertyChangedEventArgs e)
-		{
-			var Control = sender as Browser;
-			if (Control != null)
-				Control.ApplyHeaderBarVisibility();
-        }
-
-		private void OnFramesCollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
-		{
-			ApplyHeaderBarVisibility();
-        }
 
 		private void OnSelectionChanged (object sender, SelectionChangedEventArgs e)
 		{
