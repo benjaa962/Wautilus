@@ -5,7 +5,7 @@
 	>
 	
 	<DataTemplate x:Key="SideBarArticleTemplate">
-		<StackPanel Width="96" Margin="2" Orientation="Vertical"
+		<StackPanel Width="144" Margin="2" Orientation="Vertical"
 					HorizontalAlignment="Center"
 					>
 			<StackPanel.InputBindings>
@@ -17,8 +17,8 @@
 					HorizontalAlignment="Left" VerticalAlignment="Bottom"
 				/>				
 				<TextBlock
-					Width="72" TextAlignment="Right"
-					Text="{Binding Path=ShortName}" TextTrimming="CharacterEllipsis"
+					Width="120" TextAlignment="Right"
+					Text="{Binding Path=Label}" TextTrimming="CharacterEllipsis"
 					HorizontalAlignment="Right" VerticalAlignment="Bottom"
 				/>
 			</StackPanel>

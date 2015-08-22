@@ -88,7 +88,7 @@
 			/>
 		</ToolBar>
 		
-		<Frame x:Name="SideBarFrame" DockPanel.Dock="Left" Width="128" />
+		<Frame x:Name="SideBarFrame" DockPanel.Dock="Left" />
 		
 		<bc:Browser x:Name="MainBrowser" HeaderBarVisibility="Auto" />
 		
