@@ -61,7 +61,7 @@ namespace Wautilus
 		private void Open_CanExecute(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
 		{
 			if (SelectedArticle is FileArticle)
-				SelectedArticle.Open(ArticleOpenType.MainApplication);
+			{ }  //SelectedArticle.Open(ArticleOpenType.MainApplication);
 			else if (SelectedArticle is DirectoryArticle)
 				SelectedArticle.Open(ArticleOpenType.Wautilus);
 		}
