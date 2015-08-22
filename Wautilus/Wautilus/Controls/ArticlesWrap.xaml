@@ -26,11 +26,6 @@
 				ContentTemplate="{StaticResource ResourceKey=ImageNormalTemplate}"
 				>
 				<ContentPresenter.InputBindings>
-					<KeyBinding
-						Key="F4"
-						Command="ApplicationCommands.Properties"
-						CommandParameter="{Binding ElementName=MainBox}"						
-						/>
 					<MouseBinding
 						MouseAction="LeftDoubleClick"
 						Command="ApplicationCommands.Open"
@@ -61,7 +56,7 @@
 		ScrollViewer.HorizontalScrollBarVisibility="Disabled"
 		ScrollViewer.VerticalScrollBarVisibility="Auto"
 		>
-		<ListBox.Style>
+		<!--ListBox.Style>
 			<Style TargetType="{x:Type ListBox}">
 				<Setter Property="ContextMenu" Value="{StaticResource ResourceKey=ArticlesContextMenu}" />
 				<Style.Triggers>
@@ -73,7 +68,7 @@
 					</DataTrigger>
 				</Style.Triggers>
 			</Style>
-		</ListBox.Style>
+		</ListBox.Style-->
 	</ListBox>
 	
 </UserControl>

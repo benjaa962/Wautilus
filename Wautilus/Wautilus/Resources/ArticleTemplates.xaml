@@ -8,6 +8,9 @@
 		<StackPanel Width="96" Margin="2" Orientation="Vertical"
 					HorizontalAlignment="Center"
 					>
+			<StackPanel.InputBindings>
+				<KeyBinding Command="ApplicationCommands.Properties" CommandParameter="12" />
+			</StackPanel.InputBindings>
 			<StackPanel Orientation="Horizontal">
 				<local:ArticleImage
 					Article="{Binding}" Width="24" Height="24"
