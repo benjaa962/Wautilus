@@ -51,6 +51,31 @@ namespace Wautilus
 
 		#endregion
 
+		private void Open_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+		{
+			if (SelectedArticle is FileArticle)
+				SelectedArticle.Open(ArticleOpenType.MainApplication);
+			else if (SelectedArticle is DirectoryArticle)
+				SelectedArticle.Open(ArticleOpenType.Wautilus);
+		}
+		private void Open_CanExecute(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
+		{
+			if (SelectedArticle is FileArticle)
+				SelectedArticle.Open(ArticleOpenType.MainApplication);
+			else if (SelectedArticle is DirectoryArticle)
+				SelectedArticle.Open(ArticleOpenType.Wautilus);
+		}
+
+		private void CommandBinding_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+		{
+			if (SelectedArticle != null)
+				SelectedArticle.Open(ArticleOpenType.Properties);
+		}
+		private void CommandBinding_CanExecute(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
+		{
+			if (SelectedArticle != null)
+				e.CanExecute = SelectedArticle.CanOpen(ArticleOpenType.Properties);
+		}
 	}
 
 }

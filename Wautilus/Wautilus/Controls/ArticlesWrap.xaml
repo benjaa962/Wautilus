@@ -11,12 +11,32 @@
 	>
 	
 	<UserControl.InputBindings>
+		<KeyBinding
+			Command="ApplicationCommands.Properties"
+		/>
+		<KeyBinding
+			Key="Return"
+			Command="ApplicationCommands.Open"
+		/>
 		<MouseBinding
 			MouseAction="LeftDoubleClick"
 			Command="ApplicationCommands.Open"
 			CommandParameter="{Binding}"
 		/>
 	</UserControl.InputBindings>
+	
+	<UserControl.CommandBindings>
+		<CommandBinding
+			Executed="Open_Executed"
+			CanExecute="Open_CanExecute"
+			Command="ApplicationCommands.Open"
+		/>			
+		<CommandBinding
+			Executed="CommandBinding_Executed"
+			CanExecute="CommandBinding_CanExecute"
+			Command="ApplicationCommands.Properties"
+		/>			
+	</UserControl.CommandBindings>
 	
 	<UserControl.Resources>
 		
