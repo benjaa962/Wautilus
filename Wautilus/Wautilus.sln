@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.Application", "Wau
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.Common.Module", "Wautilus.Root.Module\Wautilus.Common.Module.csproj", "{02AB95D5-1C1B-4A0C-8738-82A2A1A4A290}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3A2BDC1A-AED5-4C58-B369-4432D5025885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.Common.Article", "Wautilus.Common.Article\Wautilus.Common.Article.csproj", "{84397AC3-674E-440A-9DCC-3135303CBE6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{507136CA-10D7-4774-8823-3FC54E0CA2D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,17 @@ Global
 		{02AB95D5-1C1B-4A0C-8738-82A2A1A4A290}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02AB95D5-1C1B-4A0C-8738-82A2A1A4A290}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02AB95D5-1C1B-4A0C-8738-82A2A1A4A290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84397AC3-674E-440A-9DCC-3135303CBE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84397AC3-674E-440A-9DCC-3135303CBE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84397AC3-674E-440A-9DCC-3135303CBE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84397AC3-674E-440A-9DCC-3135303CBE6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8A83ACD2-9A39-4E58-A14F-F99E392E43A4} = {507136CA-10D7-4774-8823-3FC54E0CA2D3}
+		{02AB95D5-1C1B-4A0C-8738-82A2A1A4A290} = {3A2BDC1A-AED5-4C58-B369-4432D5025885}
+		{84397AC3-674E-440A-9DCC-3135303CBE6B} = {3A2BDC1A-AED5-4C58-B369-4432D5025885}
 	EndGlobalSection
 EndGlobal
