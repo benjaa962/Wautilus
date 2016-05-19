@@ -1,0 +1,13 @@
+﻿using System.Collections.Generic;
+
+namespace Wautilus.Common.Article
+{
+
+	public interface IParentArticle : IArticle
+	{
+
+		IEnumerable<IArticle> Children { get; }
+
+	}
+
+}
