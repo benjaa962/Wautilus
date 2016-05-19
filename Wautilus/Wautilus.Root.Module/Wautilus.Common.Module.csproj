@@ -44,7 +44,7 @@
     <Compile Include="Contract\IRefreshable.cs" />
     <Compile Include="Contract\IResource.cs" />
     <Compile Include="Contract\ModuleInfo.cs" />
-    <Compile Include="Enum\ModuleState.cs" />
+    <Compile Include="Constant\ModuleState.cs" />
     <Compile Include="Test\TestConstant.cs" />
     <Compile Include="Utils\ModuleExportAttribute.cs" />
     <Compile Include="Utils\ModuleInfoBuilder.cs" />

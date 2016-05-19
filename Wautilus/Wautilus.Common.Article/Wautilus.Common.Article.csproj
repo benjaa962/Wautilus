@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant\Constant.cs" />
     <Compile Include="Contract\IArticle.cs" />
     <Compile Include="Contract\IArticleModule.cs" />
     <Compile Include="Contract\IParentArticle.cs" />
-    <Compile Include="Enum\ArticleNameType.cs" />
+    <Compile Include="Constant\ArticleNameType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\ArticleProvider.cs" />
   </ItemGroup>

@@ -42,7 +42,7 @@ namespace Wautilus.Article.LocalArticle
 
 		public string GetName (ArticleNameType type)
 		{
-			switch(type)
+			switch (type)
 			{
 				case ArticleNameType.Full:  return Info.FullName;
 				case ArticleNameType.Short: return Info.Name    ;
