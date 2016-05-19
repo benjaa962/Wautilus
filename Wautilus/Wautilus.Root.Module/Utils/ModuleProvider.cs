@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.Reflection;
+using System.Linq;
 
 namespace Wautilus.Common.Module
 {
@@ -44,9 +45,12 @@ namespace Wautilus.Common.Module
 				var allModules = container.GetExportedValues<IModule>();
 				foreach (IModule module in allModules)
 				{
-					var State = module.GetState();
-					if (State == ModuleState.Succes)
-						Modules.Add(module.Key, module);
+					if (!Modules.ContainsKey(module.Key))
+					{
+						var State = module.GetState();
+						if (State == ModuleState.Succes)
+							Modules.Add(module.Key, module);
+					}
 				}
 			}
 			catch (Exception ex)
@@ -77,7 +81,7 @@ namespace Wautilus.Common.Module
 			var modules = new List<T>();
 			foreach (var module in Modules)
 			{
-				if (module is T)
+				if (module.Value is T)
 					modules.Add((T)module.Value);
 			}
 			return modules;

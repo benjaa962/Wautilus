@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Wautilus.Common.Article;
 using Wautilus.Common.Module;
 
 namespace Wautilus.Application
@@ -14,11 +15,13 @@ namespace Wautilus.Application
 		{
 			InitializeComponent();
 
-			var Provider = ModuleProvider.Instance;
-			Provider.Import();
-			var Test = Provider.GetModule<TestModule>("Test");
+			ModuleProvider.Instance.Import(".");
 
-			var a = new Uri("local://test/ici?hahaha");
+			string path = @"test";
+			Uri reference = ArticleProvider.GetReference("local", path);
+
+			var Provider = ArticleProvider.Instance;
+			var a = Provider.GetArticle(reference);
 		}
 
 		#endregion

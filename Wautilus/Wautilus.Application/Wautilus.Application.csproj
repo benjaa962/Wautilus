@@ -103,6 +103,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Wautilus.Common.Article\Wautilus.Common.Article.csproj">
+      <Project>{84397ac3-674e-440a-9dcc-3135303cbe6b}</Project>
+      <Name>Wautilus.Common.Article</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wautilus.Root.Module\Wautilus.Common.Module.csproj">
       <Project>{02ab95d5-1c1b-4a0c-8738-82a2a1a4a290}</Project>
       <Name>Wautilus.Common.Module</Name>
