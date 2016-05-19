@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.Application", "Wau
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{47570EE4-9804-43F1-9E12-289C00AFEA57}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FA9D967B-F778-47EC-8C66-43144937AAF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wautilus.Common.Module", "Wautilus.Common.Module\Wautilus.Common.Module.csproj", "{94CEBF8A-A713-49B6-953D-87A4D298B78A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 		{87D98253-F9E9-409E-ABE6-AD744766BEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87D98253-F9E9-409E-ABE6-AD744766BEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87D98253-F9E9-409E-ABE6-AD744766BEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94CEBF8A-A713-49B6-953D-87A4D298B78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94CEBF8A-A713-49B6-953D-87A4D298B78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94CEBF8A-A713-49B6-953D-87A4D298B78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94CEBF8A-A713-49B6-953D-87A4D298B78A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{87D98253-F9E9-409E-ABE6-AD744766BEE2} = {47570EE4-9804-43F1-9E12-289C00AFEA57}
+		{94CEBF8A-A713-49B6-953D-87A4D298B78A} = {FA9D967B-F778-47EC-8C66-43144937AAF6}
 	EndGlobalSection
 EndGlobal
