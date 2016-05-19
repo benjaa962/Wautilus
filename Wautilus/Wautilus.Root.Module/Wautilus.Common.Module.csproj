@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IRefreshable.cs" />
+    <Compile Include="Contract\IResource.cs" />
     <Compile Include="Contract\ModuleInfo.cs" />
     <Compile Include="Enum\ModuleState.cs" />
     <Compile Include="Test\TestConstant.cs" />

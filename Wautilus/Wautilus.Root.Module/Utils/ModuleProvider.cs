@@ -34,11 +34,11 @@ namespace Wautilus.Common.Module
 
 		#region public method
 
-		public void Import (params string[] CatalogPaths)
+		public void Import (params string[] catalogPaths)
 		{
 			try
 			{
-				var catalog   = GetCatalog(CatalogPaths);
+				var catalog   = GetCatalog(catalogPaths);
 				var container = new CompositionContainer(catalog);
 
 				var allModules = container.GetExportedValues<IModule>();
@@ -55,17 +55,17 @@ namespace Wautilus.Common.Module
 			}
 		}
 
-		public IModule GetModule (string Key)
+		public IModule GetModule (string key)
 		{
-			return GetModule<IModule>(Key);
+			return GetModule<IModule>(key);
 		}
-		public T GetModule<T> (string Key) where T : IModule
+		public T GetModule<T> (string key) where T : IModule
 		{
-			if (!Modules.ContainsKey(Key))
+			if (!Modules.ContainsKey(key))
 				return default(T);
-			if (!(Modules[Key] is T))
+			if (!(Modules[key] is T))
 				return default(T);
-			return (T)Modules[Key];
+			return (T)Modules[key];
 		}
 
 		public IEnumerable<IModule> GetModules ()
@@ -87,14 +87,14 @@ namespace Wautilus.Common.Module
 
 		#region private method
 
-		private ComposablePartCatalog GetCatalog (string[] CatalogPaths)
+		private ComposablePartCatalog GetCatalog (string[] catalogPaths)
 		{
 			var catalog = new AggregateCatalog();
 
 			var mainCatalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
 			catalog.Catalogs.Add(mainCatalog);
 
-			foreach (var catalogPath in CatalogPaths)
+			foreach (var catalogPath in catalogPaths)
 			{
 				var subCatalog = new DirectoryCatalog(catalogPath);
 				catalog.Catalogs.Add(subCatalog);

@@ -29,13 +29,13 @@ namespace Wautilus.Application
 
 		private static IModuleInfo GetInfo ()
 		{
-			var Builder = new ModuleInfoBuilder
+			var builder = new ModuleInfoBuilder
 			{
 				Author  = TestConstant.Author ,
 				Comment = TestConstant.Comment,
 			};
 			
-			return Builder.Build();
+			return builder.Build();
 		}
 
 		#endregion
