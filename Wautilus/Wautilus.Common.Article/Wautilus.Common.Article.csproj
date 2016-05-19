@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contract\IArticle.cs" />
-    <Compile Include="Contract\IGroupArticle.cs" />
+    <Compile Include="Contract\IParentArticle.cs" />
     <Compile Include="Enum\ArticleNameType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
