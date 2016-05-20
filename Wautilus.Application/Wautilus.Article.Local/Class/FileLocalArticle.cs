@@ -1,5 +1,4 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using System;
 using Wautilus.Common.Article;
 
 namespace Wautilus.Article.Local

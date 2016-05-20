@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Wautilus.Common.Article;
-using Wautilus.Common.Module;
 
 namespace Wautilus.Application
 {
@@ -13,13 +12,16 @@ namespace Wautilus.Application
 		public MainWindow ()
 		{
 			InitializeComponent();
+			Test();
+		}
 
-			ModuleProvider.Instance.Import();
+		#endregion
+
+		private void Test ()
+		{
 			var path = @"C:\Home\DansTonChat\6600.txt";
 			var a = ArticleProvider.GetArticle("local", path);
 		}
-		
-		#endregion
 
 	}
 

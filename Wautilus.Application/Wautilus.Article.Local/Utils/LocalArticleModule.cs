@@ -1,5 +1,4 @@
-﻿using System;
-using Wautilus.Common.Article;
+﻿using Wautilus.Common.Article;
 using Wautilus.Common.Module;
 
 namespace Wautilus.Article.Local
