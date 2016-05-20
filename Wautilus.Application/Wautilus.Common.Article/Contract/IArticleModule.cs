@@ -1,5 +1,4 @@
-﻿using System;
-using Wautilus.Common.Module;
+﻿using Wautilus.Common.Module;
 
 namespace Wautilus.Common.Article
 {
@@ -7,7 +6,7 @@ namespace Wautilus.Common.Article
 	public interface IArticleModule : IModule
 	{
 
-		IArticle GetArticle (Uri reference);
+		IArticle GetArticle (string path);
 
 	}
 

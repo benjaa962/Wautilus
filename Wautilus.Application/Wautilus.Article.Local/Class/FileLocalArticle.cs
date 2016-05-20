@@ -19,7 +19,6 @@ namespace Wautilus.Article.Local
 		public FileLocalArticle (string path)
 		{
 			Info = new FileInfo(path);
-			Reference = GetReference();
 		}
 
 		#endregion
@@ -28,8 +27,6 @@ namespace Wautilus.Article.Local
 
 		public string Path => Info ?. FullName;
 
-		public Uri Reference { get; private set; }
-
 		#endregion
 
 		#region public method
@@ -37,7 +34,6 @@ namespace Wautilus.Article.Local
 		public void Refresh ()
 		{
 			Info.Refresh();
-			Reference = GetReference();
 		}
 
 		public string GetName (ArticleNameType type)
@@ -48,15 +44,6 @@ namespace Wautilus.Article.Local
 				case ArticleNameType.Short: return Info.Name    ;
 				default:                    return null         ;
 			}
-		}
-
-		#endregion
-
-		#region private method
-
-		private Uri GetReference ()
-		{
-			return ArticleProvider.GetReference(Constant.Key, Path);
 		}
 
 		#endregion

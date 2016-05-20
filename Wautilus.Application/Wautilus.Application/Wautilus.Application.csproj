@@ -102,6 +102,14 @@
       <Project>{c49114be-96af-404c-855d-a40e4fb149d1}</Project>
       <Name>Wautilus.Article.Local</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wautilus.Common.Article\Wautilus.Common.Article.csproj">
+      <Project>{b7c34d62-5023-44cc-a919-c31e8c9371da}</Project>
+      <Name>Wautilus.Common.Article</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wautilus.Common.Module\Wautilus.Common.Module.csproj">
+      <Project>{94cebf8a-a713-49b6-953d-87a4d298b78a}</Project>
+      <Name>Wautilus.Common.Module</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

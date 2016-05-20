@@ -29,27 +29,10 @@ namespace Wautilus.Common.Article
 
 		#region public method
 
-		public static Uri GetReference (string moduleKey, string articlePath)
+		public static IArticle GetArticle (string moduleKey, string articlePath)
 		{
-			var builder = new UriBuilder
-			{
-				Scheme = moduleKey  ,
-				Host   = articlePath,
-			};
-			return builder.Uri;
-		}
-
-		public static IArticle GetArticle (string reference)
-		{
-			var uri = new Uri(reference);
-			return GetArticle(uri);
-		}
-		public static IArticle GetArticle (Uri reference)
-		{
-			var key    = reference ?. Scheme;
-			var module = GetModule(key)     ;
-
-			return module ?. GetArticle(reference);
+			var module = GetModule(moduleKey);
+			return module ?. GetArticle(articlePath);
 		}
 
 		#endregion

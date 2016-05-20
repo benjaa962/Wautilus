@@ -25,9 +25,8 @@ namespace Wautilus.Article.Local
 			return ModuleState.Succes;
 		}
 
-		public IArticle GetArticle (Uri reference)
+		public IArticle GetArticle (string path)
 		{
-			string path = reference ?. PathAndQuery;
 			return LocalArticleFactory.GetArticle(path);
 		}
 
@@ -35,7 +34,7 @@ namespace Wautilus.Article.Local
 
 		#region private method
 
-		private static IModuleInfo GetInfo()
+		private static IModuleInfo GetInfo ()
 		{
 			var builder = new ModuleInfoBuilder
 			{
