@@ -45,8 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\DirectoryLocalArticle.cs" />
     <Compile Include="Class\FileLocalArticle.cs" />
-    <Compile Include="Class\ILocalArticle.cs" />
+    <Compile Include="Class\LocalArticle.cs" />
     <Compile Include="Constant\Constant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\LocalArticleFactory.cs" />

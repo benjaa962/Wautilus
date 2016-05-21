@@ -4,7 +4,7 @@
 	public static class LocalArticleFactory
 	{
 
-		public static ILocalArticle GetArticle (string path)
+		public static LocalArticle GetArticle (string path)
 		{
 			return new FileLocalArticle(path);
 		}

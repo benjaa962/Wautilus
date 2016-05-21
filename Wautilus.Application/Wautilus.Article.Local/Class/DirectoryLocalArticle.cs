@@ -4,27 +4,27 @@ using Wautilus.Common.Article;
 namespace Wautilus.Article.Local
 {
 
-	public class FileLocalArticle : LocalArticle
+	public class DirectoryLocalArticle : LocalArticle
 	{
 		
 		#region field
 
-		private FileInfo Info;
+		private DirectoryInfo Info;
 
 		#endregion
 
 		#region constructor
 
-		public FileLocalArticle (string path)
+		public DirectoryLocalArticle (string path)
 		{
-			Info = new FileInfo(path);
+			Info = new DirectoryInfo(path);
 		}
 
 		#endregion
 
 		#region property
 
-		public override string Path => Info ?. FullName;
+		public override string Path => Info?.FullName;
 
 		#endregion
 
@@ -39,12 +39,12 @@ namespace Wautilus.Article.Local
 		{
 			switch (type)
 			{
-				case ArticleNameType.Full:  return Info.FullName;
+				case ArticleNameType.Full : return Info.FullName;
 				case ArticleNameType.Short: return Info.Name    ;
-				default:                    return null         ;
+				default: return null;
 			}
 		}
-
+		
 		#endregion
 
 	}
