@@ -52,6 +52,7 @@ namespace Wautilus.Article.Local
 		public override void Refresh ()
 		{
 			Info.Refresh();
+			_Children = null;
 		}
 
 		public override string GetName (ArticleNameType type)
