@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using Wautilus.Article.Local;
 using Wautilus.Common.Article;
 
 namespace Wautilus.Application
@@ -19,8 +21,9 @@ namespace Wautilus.Application
 
 		private void Test ()
 		{
-			var path = @"C:\Home\DansTonChat\6600.txt";
-			var a = ArticleProvider.GetArticle("local", path);
+			var path = @"D:\Vrac";
+			var a = ArticleProvider.GetArticle("local", path) as DirectoryLocalArticle;
+			var b = a.Children as ObservableCollection<IArticle>;
 		}
 
 	}

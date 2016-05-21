@@ -19,6 +19,10 @@ namespace Wautilus.Article.Local
 		{
 			Info = new FileInfo(path);
 		}
+		internal FileLocalArticle (FileInfo info)
+		{
+			Info = info;
+		}
 
 		#endregion
 
