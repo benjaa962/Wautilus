@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\ICancelableJob.cs" />
     <Compile Include="Contract\IJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

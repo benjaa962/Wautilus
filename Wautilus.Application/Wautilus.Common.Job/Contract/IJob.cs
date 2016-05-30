@@ -3,6 +3,9 @@
 
 	public interface IJob
 	{
+
+		void Run ();
+
 	}
 
 }
