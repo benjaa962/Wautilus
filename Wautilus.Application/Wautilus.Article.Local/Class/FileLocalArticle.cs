@@ -50,6 +50,15 @@ namespace Wautilus.Article.Local
 		}
 
 		#endregion
+		
+		#region protected method
+
+		public override LocalArticle GetParent ()
+		{
+			return LocalArticleFactory.GetArticle(Info?.Directory);
+		}
+
+		#endregion
 
 	}
 

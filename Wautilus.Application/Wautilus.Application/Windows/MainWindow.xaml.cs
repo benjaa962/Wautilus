@@ -21,9 +21,9 @@ namespace Wautilus.Application
 
 		private void Test ()
 		{
-			var path = @"D:\Vrac";
-			var a = ArticleProvider.GetArticle("local", path) as DirectoryLocalArticle;
-			var b = a.Children as ObservableCollection<IArticle>;
+			var path = @"C:\Home";
+			var a = ArticleProvider.GetArticle("local", path) as IChildArticle;
+			var b = a.Parent;
 		}
 
 	}

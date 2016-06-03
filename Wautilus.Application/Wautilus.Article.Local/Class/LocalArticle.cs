@@ -4,12 +4,28 @@ using Wautilus.Common.Module;
 namespace Wautilus.Article.Local
 {
 
-	public abstract class LocalArticle : IArticle,  IRefreshable
+	public abstract class LocalArticle : IArticle, IChildArticle, IRefreshable
 	{
 		
+		#region field
+
+		private LocalArticle _Parent;
+
+		#endregion
+
 		#region property
 
 		public abstract string Path { get; }
+
+		public IArticle Parent
+		{
+			get
+			{
+				if (_Parent == null)
+					_Parent = GetParent();
+				return _Parent;
+			}
+		}
 
 		#endregion
 
@@ -17,6 +33,7 @@ namespace Wautilus.Article.Local
 
 		public virtual void Refresh ()
 		{
+			_Parent = null;
 		}
 
 		public abstract string GetName (ArticleNameType type);
@@ -26,7 +43,7 @@ namespace Wautilus.Article.Local
 			return Path.GetHashCode();
 		}
 
-		public new bool Equals(object other)
+		public new bool Equals (object other)
 		{
 			var local = other as LocalArticle;
 			return Equals(local);
@@ -38,6 +55,20 @@ namespace Wautilus.Article.Local
 			return local      != null
 				&& local.Path != null
 				&& local.Path == Path;
+		}
+
+		public override string ToString ()
+		{
+			return Path;
+		}
+
+		#endregion
+
+		#region protected method
+
+		public virtual LocalArticle GetParent ()
+		{
+			return null;
 		}
 
 		#endregion

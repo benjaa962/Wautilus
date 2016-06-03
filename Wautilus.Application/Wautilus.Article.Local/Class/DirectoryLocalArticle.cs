@@ -67,6 +67,15 @@ namespace Wautilus.Article.Local
 
 		#endregion
 
+		#region protected method
+
+		public override LocalArticle GetParent ()
+		{
+			return LocalArticleFactory.GetArticle(Info.Parent);
+		}
+
+		#endregion
+
 		#region private method
 
 		private ObservableCollection<IArticle> GetChildren ()
