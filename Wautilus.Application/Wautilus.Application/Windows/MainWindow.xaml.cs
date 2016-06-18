@@ -22,8 +22,10 @@ namespace Wautilus.Application
 		private void Test ()
 		{
 			var path = @"C:\Home";
-			var a = ArticleProvider.GetArticle("local", path) as IChildArticle;
-			var b = a.Parent;
+			var article = ArticleProvider.GetArticle("local", path) as IParentArticle;
+			var context = new ArticleContext(article);
+			//this.DataContext = context;
+			RootPanel.ItemsSource = article.Children;
 		}
 
 	}

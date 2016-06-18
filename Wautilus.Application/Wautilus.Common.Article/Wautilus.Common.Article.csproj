@@ -44,10 +44,16 @@
     <Compile Include="Contract\IArticle.cs" />
     <Compile Include="Contract\IArticleModule.cs" />
     <Compile Include="Contract\IChildArticle.cs" />
+    <Compile Include="Contract\IObservableArticle.cs" />
+    <Compile Include="Contract\IObservableParentArticle.cs" />
     <Compile Include="Contract\IParentArticle.cs" />
+    <Compile Include="Event\ArticleEventArgs.cs" />
+    <Compile Include="Event\ChildrenModifiedArticleEventArgs.cs" />
+    <Compile Include="Event\MovedArticleEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ArticleProvider.cs" />
     <Compile Include="ViewModel\ArticleContext.cs" />
+    <Compile Include="ViewModel\ArticleContextFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wautilus.Common.Module\Wautilus.Common.Module.csproj">
