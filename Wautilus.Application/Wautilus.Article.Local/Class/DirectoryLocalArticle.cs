@@ -1,23 +1,17 @@
-﻿using System;
+﻿using Alphaleonis.Win32.Filesystem;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Wautilus.Common.Article;
-using AlphaFS = Alphaleonis.Win32.Filesystem;
 
 namespace Wautilus.Article.Local
 {
 
-	public class DirectoryLocalArticle : LocalArticle, IObservableParentArticle
+	public class DirectoryLocalArticle : LocalArticle
 	{
 
 		#region field
 
-		public event EventHandler<MovedArticleEventArgs>            Moved           ;
-		public event EventHandler<ChildrenModifiedArticleEventArgs> ChildrenModified;
-
-		private AlphaFS.DirectoryInfo Info   ;
-		private FileSystemWatcher     Watcher;
+		private DirectoryInfo Info;
 
 		private IEnumerable<IArticle> _Children = null;
 
@@ -27,13 +21,13 @@ namespace Wautilus.Article.Local
 
 		public DirectoryLocalArticle (string path) : base()
 		{
-			Info = new AlphaFS.DirectoryInfo(path);
-			Refresh();
+			Info = new DirectoryInfo(path);
+			RefreshWatcher();
 		}
-		internal DirectoryLocalArticle (AlphaFS.DirectoryInfo info) : base()
+		internal DirectoryLocalArticle (DirectoryInfo info) : base()
 		{
 			Info = info;
-			Refresh();
+			RefreshWatcher();
 		}
 
 		#endregion
@@ -52,12 +46,6 @@ namespace Wautilus.Article.Local
 			}
 		}
 
-		public bool IsObservationEnabled
-		{
-			get { return Watcher.EnableRaisingEvents;  }
-			set { Watcher.EnableRaisingEvents = value; }
-		}
-
 		#endregion
 
 		#region public method
@@ -65,11 +53,10 @@ namespace Wautilus.Article.Local
 		public override void Refresh ()
 		{
 			_Children = null;
-			Info.Refresh();
 
-			Watcher.Changed -= Watcher_Changed;
-			Watcher = new FileSystemWatcher(Path);
-			Watcher.Changed += Watcher_Changed;
+			base.Refresh  ();
+			Info.Refresh  ();
+			RefreshWatcher();
 		}
 
 		public override string GetName (ArticleNameType type)
@@ -86,7 +73,7 @@ namespace Wautilus.Article.Local
 
 		#region protected method
 
-		public override LocalArticle GetParent ()
+		protected override LocalArticle GetParent ()
 		{
 			return LocalArticleFactory.GetArticle(Info.Parent);
 		}
@@ -98,16 +85,8 @@ namespace Wautilus.Article.Local
 		private IEnumerable<IArticle> GetChildren ()
 		{
 			return Info
-				.GetFileSystemInfos("*", SearchOption.TopDirectoryOnly)
+				.GetFileSystemInfos("*", System.IO.SearchOption.TopDirectoryOnly)
 				.Select(info => LocalArticleFactory.GetArticle(info));
-		}
-
-		#endregion
-
-		#region event
-
-		private void Watcher_Changed (object sender, FileSystemEventArgs e)
-		{
 		}
 
 		#endregion

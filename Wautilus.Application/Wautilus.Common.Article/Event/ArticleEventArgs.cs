@@ -3,7 +3,7 @@
 namespace Wautilus.Common.Article
 {
 
-	public abstract class ArticleEventArgs : EventArgs
+	public class ArticleEventArgs : EventArgs
 	{
 		
 		#region constructor

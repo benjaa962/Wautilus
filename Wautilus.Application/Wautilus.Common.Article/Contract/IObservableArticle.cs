@@ -8,7 +8,8 @@ namespace Wautilus.Common.Article
 
 		bool IsObservationEnabled { get; set; }
 
-		event EventHandler<MovedArticleEventArgs> Moved;
+		event EventHandler<ArticleEventArgs>      Changed;
+		event EventHandler<MovedArticleEventArgs> Moved  ;
 
 	}
 

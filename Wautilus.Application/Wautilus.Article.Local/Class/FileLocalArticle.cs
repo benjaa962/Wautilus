@@ -6,7 +6,7 @@ namespace Wautilus.Article.Local
 
 	public class FileLocalArticle : LocalArticle
 	{
-		
+
 		#region field
 
 		private FileInfo Info;
@@ -15,13 +15,15 @@ namespace Wautilus.Article.Local
 
 		#region constructor
 
-		public FileLocalArticle (string path)
+		public FileLocalArticle (string path) :	base()
 		{
 			Info = new FileInfo(path);
+			RefreshWatcher();
 		}
-		internal FileLocalArticle (FileInfo info)
+		internal FileLocalArticle (FileInfo info) : base()
 		{
 			Info = info;
+			RefreshWatcher();
 		}
 
 		#endregion
@@ -36,7 +38,9 @@ namespace Wautilus.Article.Local
 
 		public override void Refresh ()
 		{
-			Info.Refresh();
+			base.Refresh  ();
+			Info.Refresh  ();
+			RefreshWatcher();
 		}
 
 		public override string GetName (ArticleNameType type)
@@ -53,7 +57,7 @@ namespace Wautilus.Article.Local
 		
 		#region protected method
 
-		public override LocalArticle GetParent ()
+		protected override LocalArticle GetParent ()
 		{
 			return LocalArticleFactory.GetArticle(Info?.Directory);
 		}
