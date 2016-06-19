@@ -55,6 +55,19 @@ namespace Wautilus.Common.Article
 		public string ShortName => Article ?. GetName(ArticleNameType.Short);
 		public string FullName  => Article ?. GetName(ArticleNameType.Full );
 
+		public bool IsObservationEnabled
+		{
+			get
+			{
+				return (Article as IObservableArticle) ?. IsObservationEnabled ?? false;
+			}
+			set
+			{
+				if (Article is IObservableArticle)
+					(Article as IObservableArticle).IsObservationEnabled = value;
+			}
+		}
+
 		#endregion
 
 		#region public method

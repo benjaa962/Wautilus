@@ -23,9 +23,9 @@ namespace Wautilus.Application
 			var path = @"C:\Home";
 			var article = ArticleProvider.GetArticle("local", path) as DirectoryLocalArticle;
 			var context = new ArticleContext(article);
+			context.IsObservationEnabled = true;
 			RootPanel.ItemsSource = context.Children;
 		}
-
 
 	}
 
