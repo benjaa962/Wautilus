@@ -18,12 +18,10 @@ namespace Wautilus.Article.Local
 		public FileLocalArticle (string path) :	base()
 		{
 			Info = new FileInfo(path);
-			RefreshWatcher();
 		}
 		internal FileLocalArticle (FileInfo info) : base()
 		{
 			Info = info;
-			RefreshWatcher();
 		}
 
 		#endregion
@@ -38,9 +36,8 @@ namespace Wautilus.Article.Local
 
 		public override void Refresh ()
 		{
-			base.Refresh  ();
-			Info.Refresh  ();
-			RefreshWatcher();
+			base.Refresh();
+			Info.Refresh();
 		}
 
 		public override string GetName (ArticleNameType type)

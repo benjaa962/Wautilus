@@ -22,12 +22,10 @@ namespace Wautilus.Article.Local
 		public DirectoryLocalArticle (string path) : base()
 		{
 			Info = new DirectoryInfo(path);
-			RefreshWatcher();
 		}
 		internal DirectoryLocalArticle (DirectoryInfo info) : base()
 		{
 			Info = info;
-			RefreshWatcher();
 		}
 
 		#endregion
@@ -54,9 +52,8 @@ namespace Wautilus.Article.Local
 		{
 			_Children = null;
 
-			base.Refresh  ();
-			Info.Refresh  ();
-			RefreshWatcher();
+			base.Refresh();
+			Info.Refresh();
 		}
 
 		public override string GetName (ArticleNameType type)

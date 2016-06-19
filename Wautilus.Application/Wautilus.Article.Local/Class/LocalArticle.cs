@@ -14,8 +14,9 @@ namespace Wautilus.Article.Local
 		public event EventHandler<ArticleEventArgs>      Changed;
 		public event EventHandler<MovedArticleEventArgs> Moved  ;
 
-		private LocalArticle _Parent;
+		private bool _IsObservationEnabled = false;
 
+		private LocalArticle      _Parent;
 		private FileSystemWatcher Watcher;
 
 		#endregion
@@ -36,8 +37,31 @@ namespace Wautilus.Article.Local
 
 		public bool IsObservationEnabled
 		{
-			get { return Watcher.EnableRaisingEvents; }
-			set { Watcher.EnableRaisingEvents = value; }
+			get {
+				return _IsObservationEnabled;
+			}
+			set
+			{
+				if (_IsObservationEnabled == value)
+					return;
+				_IsObservationEnabled = value;
+
+				if (Watcher != null)
+				{
+					Watcher.Changed -= Watcher_Changed;
+					Watcher.Renamed -= Watcher_Renamed;
+					Watcher.EnableRaisingEvents = false;
+					Watcher = null;
+				}
+
+				if (_IsObservationEnabled)
+				{
+					Watcher = new FileSystemWatcher(Path);
+					Watcher.Changed += Watcher_Changed;
+					Watcher.Renamed += Watcher_Renamed;
+					Watcher.EnableRaisingEvents = true;
+				}
+			}
 		}
 
 		#endregion
@@ -47,6 +71,12 @@ namespace Wautilus.Article.Local
 		public virtual void Refresh ()
 		{
 			_Parent = null;
+
+			if (IsObservationEnabled)
+			{
+				IsObservationEnabled = false;
+				IsObservationEnabled = true ;
+			}
 		}
 
 		public abstract string GetName (ArticleNameType type);
@@ -82,24 +112,6 @@ namespace Wautilus.Article.Local
 		protected virtual LocalArticle GetParent ()
 		{
 			return null;
-		}
-
-		protected void RefreshWatcher ()
-		{
-			bool isWatcherEnabled = false;
-
-			if (Watcher != null)
-			{
-				Watcher.Changed -= Watcher_Changed;
-				Watcher.Renamed -= Watcher_Renamed;
-				isWatcherEnabled = Watcher.EnableRaisingEvents;
-			}
-
-			Watcher = new FileSystemWatcher(Path);
-
-			Watcher.Changed += Watcher_Changed;
-			Watcher.Renamed += Watcher_Renamed;
-			Watcher.EnableRaisingEvents = isWatcherEnabled;
 		}
 
 		#endregion
