@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Wautilus.Common.Module;
 
@@ -11,7 +10,7 @@ namespace Wautilus.Common.Article
 
 		#region field
 
-		public IArticle _Article = null;
+		private IArticle _Article = null;
 
 		private ArticleContext                       _Parent   = null;
 		private ObservableCollection<ArticleContext> _Children = null;
@@ -23,6 +22,9 @@ namespace Wautilus.Common.Article
 		public ArticleContext (IArticle article) : base()
 		{
 			Article = article;
+
+			(Article as IObservableArticle).Changed += ArticleContext_Changed;
+			(Article as IObservableArticle).Moved   += ArticleContext_Moved  ;
 		}
 
 		#endregion
@@ -81,6 +83,18 @@ namespace Wautilus.Common.Article
 				return null;
 			var childrenContext = childrenArticle.Select(child => new ArticleContext(child));
 			return new ObservableCollection<ArticleContext>(childrenContext);
+		}
+
+		#endregion
+
+		#region event
+
+		private void ArticleContext_Moved (object sender, MovedArticleEventArgs e)
+		{
+		}
+
+		private void ArticleContext_Changed (object sender, ArticleEventArgs e)
+		{
 		}
 
 		#endregion

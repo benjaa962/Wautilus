@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
 using Wautilus.Article.Local;
 using Wautilus.Common.Article;
 
@@ -24,16 +23,9 @@ namespace Wautilus.Application
 			var path = @"C:\Home";
 			var article = ArticleProvider.GetArticle("local", path) as DirectoryLocalArticle;
 			var context = new ArticleContext(article);
-			//this.DataContext = context;
-			RootPanel.ItemsSource = article.Children;
-
-			article.IsObservationEnabled = true;
-			article.Changed += Article_Changed;
+			RootPanel.ItemsSource = context.Children;
 		}
 
-		private void Article_Changed(object sender, ArticleEventArgs e)
-		{
-		}
 
 	}
 
