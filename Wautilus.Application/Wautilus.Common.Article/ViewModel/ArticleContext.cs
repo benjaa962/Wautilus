@@ -1,11 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Wautilus.Common.Module;
+using Wautilus.Common.ViewModel;
 
 namespace Wautilus.Common.Article
 {
 
-	public class ArticleContext
+	public class ArticleContext : AbstractContext
 	{
 
 		#region field
@@ -98,16 +99,30 @@ namespace Wautilus.Common.Article
 			return new ObservableCollection<ArticleContext>(childrenContext);
 		}
 
+		private void OnArticleChanged ()
+		{
+			OnPropertyChanged
+			(
+				nameof(Article)
+				,nameof(Parent  )
+				,nameof(Children)
+				,nameof(ShortName)
+				,nameof(FullName )
+			);
+		}
+
 		#endregion
 
 		#region event
 
 		private void ArticleContext_Moved (object sender, MovedArticleEventArgs e)
 		{
+			OnArticleChanged();
 		}
 
 		private void ArticleContext_Changed (object sender, ArticleEventArgs e)
 		{
+			OnArticleChanged();
 		}
 
 		#endregion
